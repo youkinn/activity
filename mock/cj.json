@@ -1,0 +1,18 @@
+[
+  {"type": "cj", "name": "美国", "id": "3-0"},
+  {"type": "cj", "name": "伊朗", "id": "3-1"},
+  {"type": "cj", "name": "墨西哥", "id": "3-2"},
+  {"type": "cj", "name": "北欧", "id": "3-3"},
+  {"type": "cj", "name": "印度", "id": "3-4"},
+  {"type": "cj", "name": "巴西", "id": "3-5"},
+  {"type": "cj", "name": "沙特", "id": "3-6"},
+  {"type": "cj", "name": "卡塔尔", "id": "3-7"},
+  {"type": "cj", "name": "泰国", "id": "3-8"},
+  {"type": "cj", "name": "德国", "id": "3-9"},
+  {"type": "cj", "name": "新加坡", "id": "3-10"},
+  {"type": "cj", "name": "日本", "id": "3-11"},
+  {"type": "cj", "name": "韩国", "id": "3-12"},
+  {"type": "cj", "name": "印尼", "id": "3-13"},
+  {"type": "cj", "name": "法国", "id": "3-14"},
+  {"type": "cj", "name": "阿根廷", "id": "3-15"}
+]

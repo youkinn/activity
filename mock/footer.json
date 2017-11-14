@@ -1,0 +1,107 @@
+{
+  "code": 0,
+  "data": [
+    {
+      "articleContent": [
+        {
+          "articleContentId": 119774,
+          "name": "聚贸共享一体化"
+        },
+        {
+          "articleContentId": 119767,
+          "name": "测试看看1 "
+        },
+        {
+          "articleContentId": 142662,
+          "name": "历史课本没有告诉你的 "
+        },
+        {
+          "articleContentId": 100015,
+          "name": "关于我们 "
+        },
+        {
+          "articleContentId": 100128,
+          "name": "日通报 ",
+          "picture ": " / upload / www.jmdev.com / PC / 2017 / 04 / 25 / 17 / 40 / 17 / 9691345 bb1ba9271 - jm.jpg "
+        },
+        {
+          "articleContentId": 100131,
+          "name": "聚贸日日通 ",
+          "picture": " / upload / www.jmdev.com / PC / 2017 / 05 / 15 / 15 / 05 / 41 / 838e e0dff1cd1ea7 - jm.jpg "
+        },
+        {
+          "articleContentId": 119769,
+          "name": "测试看看3 "
+        },
+        {
+          "articleContentId": 129634,
+          "name": "huseyhre ",
+          "picture": " / group1 / M00 / 03 / 55 / rBIBPVmbmUCAZnXlAAAlKwQzL8E299.jpg "
+        },
+        {
+          "articleContentId": 100045,
+          "name": "我们在哪里 "
+        },
+        {
+          "articleContentId": 128597,
+          "name": "hshethr ",
+          "picture": " / group1 / M00 / 03 / 47 / rBIBPVmWk52AexUVAADsUpnL7Tw508_reduce.jpg "
+        }
+      ],
+      "categoryCode": "00000201 ",
+      "categoryName": "关于聚贸 "
+    },
+    {
+      "articleContent": [
+        {
+          "articleContentId": 119771,
+          "name": "测试看看5 "
+        },
+        {
+          "articleContentId": 119768,
+          "name": "测试看看2 "
+        },
+        {
+          "articleContentId": 119770,
+          "name": "测试看看4 "
+        },
+        {
+          "articleContentId": 119772,
+          "name": "测试看看6 "
+        },
+        {
+          "articleContentId": 100112,
+          "name": "新手指印LQY0401 "
+        }
+      ],
+      "categoryCode": "00000202 ",
+      "categoryName": "新手指引 "
+    },
+    {
+      "articleContent": [
+        {
+          "articleContentId": 119775,
+          "name": "测试看看9 "
+        },
+        {
+          "articleContentId": 119778,
+          "name": "测试看看12 "
+        },
+        {
+          "articleContentId": 119777,
+          "name": "测试看看11 "
+        },
+        {
+          "articleContentId": 119776,
+          "name": "测试看看10 "
+        },
+        {
+          "articleContentId": 119773,
+          "name": "测试看看7 "
+        }
+      ],
+      "categoryCode": "00000203 ",
+      "categoryName": "平台规则 "
+    }
+  ]
+}
