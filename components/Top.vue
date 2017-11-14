@@ -1,8 +1,8 @@
 <template lang="html">
 <div id="Top">
   <div class="container">
-    <el-row>
-      <el-col :span="6" class="login-info">
+    <div class="clearfix">
+      <div class="login-info pull-left">
         <div class="site-nav" v-if="!user.userId">
           <span class="welcome-text">您好，欢迎来到聚贸煤炭平台!</span>
           <ul class="nav">
@@ -42,9 +42,9 @@
           </div>
           <a :href="`${userCenterAddress}/logout?returnUrl=${fullpath}`">退出</a>
         </div>
-      </el-col>
+      </div>
 
-      <el-col :span="18" class="site-nav">
+      <div class="site-nav pull-right">
         <ul class="nav">
           <li>
             <a :href="platform.CONSTANT_MALL_URL" target="_blank">聚贸总站</a>
@@ -87,8 +87,8 @@
             <a :href="platform.CONSTANT_MALL_US_URL" target="_blank"><i class="icon icon-en"></i>聚贸煤炭国际站</a>
           </li>
         </ul>
-      </el-col>
-    </el-row>
+      </div>
+    </div>
   </div>
 </div>
 </template>
@@ -166,6 +166,10 @@ export default {
     a:hover {
       color: $--color-primary;
     }
+  }
+
+  .login-info{
+    width: 25%;
   }
 
   .user-info {

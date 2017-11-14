@@ -1,15 +1,13 @@
 <template>
   <div>
     <top/>
-    <my-header/>
+    <!-- <my-header/> -->
     <nuxt/>
     <my-footer/>
 
-    <login/>
+    <!-- <login/> -->
 
     <button v-show="($route.path === '/' && scrollTag)" @click="goTop()" class="back-top"></button>
-
-    <!--<nuxt-link v-show="$route.path !== '/'" :to="'/'" class="go-home">首页</nuxt-link>-->
 
     <Toolbar class="tool-bar"></Toolbar>
   </div>
@@ -39,13 +37,6 @@
       Login,
       Toolbar
     },
-//    mounted () {
-//      this.scrollTop()
-//      window.addEventListener('scroll', this.scrollTop)
-//    },
-//    destroyed () {
-//      window.removeEventlistener('scroll', this.scrollTop)
-//    },
     methods: {
       goTop () {
         clearInterval(this.timer)

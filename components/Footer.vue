@@ -117,6 +117,8 @@
 
 <style lang="scss" scoped>
 
+  @import "../element-variables";
+
   #footer {
     color: #6e6e6e;
     background-color: #fff;
@@ -124,6 +126,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
+    min-width: $--website-width;
   }
 
   .help-list {
