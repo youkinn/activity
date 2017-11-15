@@ -1,427 +1,432 @@
 <template>
-  <div>
-    <div id="slider">
-      <el-carousel :autoplay="false">
-        <el-carousel-item v-for="item in carousels" :key="item.adId">
-          <a :href="item.path" :title="item.name" target="_blank">
-            <img v-lazyload.cdn="item.picture" :alt="item.name"/>
-          </a>
-        </el-carousel-item>
-      </el-carousel>
 
-      <LoginInfo class="loginInfo"></LoginInfo>
+  <section class="enterprise container">
+
+    <p class="search-info">
+      <span>搜索企业:</span>
+      <span class="pull-right text-ligingray">
+			共找到{{ totalResult }}条
+      <span v-if="keyword">"<i class="text-primary">{{ keyword }}</i>"</span>相关结果</span>
+    </p>
+
+    <!--您是不是在找-->
+    <Recommend :data="guess" v-if="guess.length > 0"></Recommend>
+
+    <!-- 搜索条件 -->
+    <div class="search-wrap">
+      <ul class="search-condition">
+        <li class="area">
+          <AreaSelection
+            :city="city"
+            :prov="prov"
+            @provChange="provChange"
+            @cityChange="cityChange">
+
+          </AreaSelection>
+        </li>
+        <li class="mode">
+          <SearchItem
+            :results="modes"
+            type="modeId"
+            :search-id="modeId"
+            label="经营模式"
+            @searchChange="searchChange">
+          </SearchItem>
+        </li>
+      </ul>
+
+      <div class="pull-right search-page" v-if="totalPage > 0">
+        <i class="el-icon-arrow-left"
+          :disabled="currentPage === 1"
+          @click="changePage('prev')">
+        </i>
+        <input type="number" v-model.lazy.number="currentPage"> /{{totalPage}}
+        <i :disabled="currentPage === totalPage"
+          class="el-icon-arrow-right"
+          @click="changePage('next')">
+        </i>
+      </div>
     </div>
 
+    <!-- 数据列表 -->
+    <div class="data-wrap">
+      <ul v-if="result.length > 0">
+        <li v-for="item in result" :key="item.compId">
+          <div class="enterprise-info">
+            <header class="clearfix">
+              <h3 class="enterprise-name" v-html="item.compName"></h3>
+              <!--<el-button type="primary" plain>主要按钮</el-button>-->
+              <a :href="`${item.shopDomain}`" class="goshop">进入店铺</a>
+            </header>
 
-    <section class="container">
-      <!--今日钢价-->
-      <Box id="t1" title-name="今日钢价" title-icon="index" class="box-price">
-        <ul class="citys" slot="actions">
-          <li @click="changeCity(city)"
-              v-for="city in citys"
-              :class="{'active': city.code === cityCode}">
-            {{ city.cityName }}
-          </li>
-        </ul>
+            <p class="text-overflow">经营范围：<span>{{ item.serviceRange}}</span></p>
+            <p class="text-overflow">经营模式：<span class="text-muted">{{ item.compCategory}}</span></p>
+            <p class="text-overflow">经营地址：<span
+              class="text-muted">{{ item.addressProvinceName + item.addressCityName + item.addressDetail}}</span></p>
+            <p>
+              <span v-if="item.validStatus === 2"><i class="icon icon-auth"></i>已认证</span>
+            </p>
+          </div>
 
-        <div class="price-index-box">
-          <PriceIndex class="price-index" :key="i" v-for="i in 4"></PriceIndex>
-        </div>
-      </Box>
+          <div class="enterprise-product">
+            <div class="product" v-for="(good, index) in item.goodList" :key="good.goodsId">
+              <a :href="`${item.shopDomain}/hgDetails/${good.goodsId}`" :title="item.title" target="_blank">
+                <div class="img-box">
+                  <img v-imgerror :src="good.smallPicturePath | imgCdn" :alt="good.title"/>
+                </div>
 
-      <div class="open-shop" v-if="fastOpenShopAdv.length > 0">
-        <img v-lazyload.cdn="fastOpenShopAdv[0].picturePath" :alt="fastOpenShopAdv[0].name" />
-        <!--<img  src="~/assets/img/open-shop.jpg" alt="快速开店"/>-->
-        <a href="" class="open-shop__btn">开通店铺</a>
-      </div>
+                <p class="product-name text-overflow" v-html="good.title"></p>
 
-      <!--热门商品-->
-      <Box id="t2" title-name="热门商品" title-icon="hot">
-        <Hot :shoper="hotShoper"></Hot>
-      </Box>
-
-      <!--广告一-->
-      <div class="adv" v-if="adv1.length > 0">
-        <a :href="adv1[0].path" :title="adv1[0].name">
-          <img v-lazyload.cdn="adv1[0].picturePath" :alt="adv1[0].name">
-        </a>
-      </div>
-
-      <!--采购信息-->
-      <Box id="t3" title-name="采购信息" title-icon="purchase">
-        <Purchase class="purchase" :purchase="purchase" v-for="purchase in purchases"
-                  :key="purchase.demandId"></Purchase>
-      </Box>
-
-      <!--物流服务-->
-      <Box id="t4" title-name="物流服务" title-icon="car">
-        <Logistics :data="adlist.logisticsService"></Logistics>
-      </Box>
-
-      <!--金融-->
-      <Box id="t5" title-name="金融服务" title-icon="dollar">
-
-        <a slot="actions" :href="`${platform.CONSTANT_JUMORE_JIN_URL}`">更多 <i class="icon icon-more-primary"></i></a>
-
-        <Finance :data="adlist.financeAd"></Finance>
-      </Box>
-
-      <!--广告-->
-      <div class="adv" v-if="adv2.length > 0">
-        <a :href="adv2[0].path" :title="adv2[0].name">
-          <img v-lazyload.cdn="adv2[0].picturePath" :alt="adv2[0].name">
-        </a>
-      </div>
-
-      <!--新闻动态-->
-      <Box id="t6" class="news" title-name="新闻动态" title-icon="book">
-
-        <!--幻灯片-->
-        <div class="news-silder">
-          <el-carousel class="slider" arrow="never" height="260px" ref="carousel">
-            <el-carousel-item v-for="item in news.industuryArticleVo" :key="item.articleContentId">
-              <img v-lazyload.cdn="item.picture" :alt="item.name" :title="item.name"/>
-              <h3 class="title" :title="item.name">{{ item.name }}</h3>
-            </el-carousel-item>
-          </el-carousel>
-
-          <ul class="thumbnail">
-            <li v-for="(item, index) in news.industuryArticleVo"
-                :title="item.name"
-                @mouseenter="changeSlider(index)"
-                :key="item.articleContentId">
-              <a href="">
-                <img v-lazyload.cdn="item.picture" :alt="item.name"/>
+                <p class="text-primay text-overflow">￥{{ good.minPrice }}</p>
               </a>
-            </li>
-          </ul>
-        </div>
+            </div>
+          </div>
+        </li>
+      </ul>
 
-        <!--行业资讯-->
-        <NewsList
-          class="industry-news"
-          title-name="行业资讯"
-          :data="news.industuryArticleVo">
-        </NewsList>
+      <div class="no-result" v-if="result.length === 0">
+        <p>没有找到<span v-if="keyword"> 与“ <strong>{{ keyword }}</strong>”</span>相关的企业，请重新筛选条件。</p>
+      </div>
+    </div>
 
-        <!--聚贸动态-->
-        <NewsList
-          class="dynamic-news"
-          title-name="聚贸动态"
-          :data="news.newsArticleVo">
-        </NewsList>
-      </Box>
-
-      <Toolnav :data="lists"></Toolnav>
-    </section>
-
-  </div>
-
+    <!-- 分页 -->
+    <el-pagination
+      v-if="result.length > 0"
+      class="pagination"
+      @current-change="handleCurrentChange"
+      :current-page.sync="currentPage"
+      :page-count="totalPage"
+      layout="prev, pager, next, jumper">
+    </el-pagination>
+  </section>
 </template>
 
 <script>
-  import Vue from 'vue'
   import axios from '~/plugins/axios'
-
-  import Toolnav from '~/components/Toolnav.vue'
-
-  import Box from '~/components/index/Box.vue'
-  import NewsList from '~/components/index/NewsList.vue'
-  import Logistics from '~/components/index/Logistics.vue'
-  import Finance from '~/components/index/Finance.vue'
-
-  // 指数
-  import PriceIndex from '~/components/PriceIndex.vue'
-
-  // 热门商品
-  import Hot from '~/components/index/Hot.vue'
-
-  // 登录信息
-  import LoginInfo from '~/components/index/LoginInfo'
-
-  // 采购
-  import Purchase from '~/components/index/Purchase.vue'
-
-  // 聚贸平台地址
-  import platform from '~/config/platform'
-
-  const {data} = require('~/mock/indexNews.json')
+  import {ObjectMap} from '~/plugins/utils'
+  import AreaSelection from '~/components/AreaSelection'
+  import SearchItem from '~/components/SearchItem'
+  import Recommend from '~/components/Recommend'
 
   export default {
-    name: 'index',
+    components: {
+      AreaSelection,
+      Recommend,
+      SearchItem
+    },
+
     data () {
       return {
-        platform: platform,
-        industryNews: data.industuryNewsVo || [],
-        dynamicNews: data.jumoreDynamicVo || [],
-        activeName: 'first',
-        lists: [
-          {name: '今日钢价', target: '#t1'},
-          {name: '热门商品', target: '#t2'},
-          {name: '采购信息', target: '#t3'},
-          {name: '物流服务', target: '#t4'},
-          {name: '金融服务', target: '#t5'},
-          {name: '新闻动态', target: '#t6'}
+        totalPage: 0,
+
+        pageSize: 10,
+
+        modes: [
+          {name: '工厂', id: 1},
+          {name: '贸易商', id: 2},
+          {name: '工贸一体', id: 3}
         ]
       }
     },
 
-    async asyncData () {
-      let cityCode = -1
-      const [news, carousels, hotShoper, fastOpenShopAdv, adv1, adv2, purchases, adlist, {indexs, citys}] = await Promise.all([
-        // 新闻动态
-        axios.get('/index/news').then(data => data.data.data),
+    async asyncData ({query}) {
+      const provCode = parseInt(query.addressProvince, 10) || undefined
+      const cityCode = parseInt(query.addressCity, 10) || undefined
+      const page = parseInt(query.currentPage, 10) || 1
+      const modeId = parseInt(query.compCategory, 10) || -1
+      const keyword = query.keyword || ''
 
-        // 头部幻灯片
-        axios.get('/index/carousel').then(data => data.data.data),
+      let q = {
+        // 当前页码 没有默认第一页
+        currentPage: page || 1,
 
-        // 热门商家
-        axios.get('/index/hotAd').then(data => data.data.data),
+        // 省份ID 查找当前省份下的企业
+        addressProvince: provCode,
 
-        // 快捷开店横幅广告
-        axios.get('/index/fastOpenShop').then(data => data.data.data),
+        // 城市ID 查找当前城市下的企业
+        addressCity: cityCode,
 
-        // 广告一
-        axios.get('/index/floorAd1').then(data => data.data.data),
+        // 经营模式
+        compCategory: modeId === -1 ? undefined : modeId,
 
-        // 广告二
-        axios.get('/index/floorAd2').then(data => data.data.data),
+        // 每页条数
+        pageSize: 10,
 
-        // 采购信息
-        axios.get('/index/purchase').then(data => data.data.data),
+        keyword: keyword
+      }
 
-        // 物流需求/特惠线路/热门仓储/金融服务
-        axios.get('/index/adlist').then(data => data.data.data || {}),
+//      const [guess, lists] = await Promise.all([
+//        axios.get(`/api/search/1001/recommendKeyword`, {
+//          params: {
+//            keyType: 1,
+//            keyWord: keyword
+//          }
+//        }).then(data => data.data),
+//        axios.get('/api/search/1002/company', {params: q}).then(data => data.data.data)
+//      ])
 
-        // 指数城市
-        axios.get('/index/indexCity').then((data) => data.data.data).then(citys => {
-          if (Array.isArray(citys) && citys.length > 0) {
-            cityCode = citys[0].code
-
-            return axios.get('/index/indexs', {params: {cityCode: citys[0].code}}).then(indexs => {
-              return {
-                indexs: indexs.data.data,
-                citys
-              }
-            })
-          } else {
-            return {citys: citys, indexs: {}}
-          }
-        })
-      ])
-
-      console.log(fastOpenShopAdv)
-
+      // ajax 获取数据
       return {
-        news,
-        carousels,
-        indexs,
-        citys,
-        hotShoper,
-        adv1,
-        adv2,
-        purchases,
-        cityCode,
-        fastOpenShopAdv,
-        adlist
+        guess: [],//guess.data || [],
+
+        totalPage: 10,//lists.totalPage,
+
+        totalResult: 100,//lists.totalResult,
+
+        result: [],//lists.result || [],
+
+        query: query,
+
+        currentPage: page,
+
+        prov: {
+          placeCode: provCode
+        },
+
+        modeId: modeId,
+
+        keyword: keyword,
+
+        city: {
+          placeCode: cityCode
+        }
       }
     },
-
-    computed: {},
 
     methods: {
-      /**
-       * 根据城市code 获取对应的指数
-       * @param city  { code: String }  城市信息
-       * @returns {Promise.<void>}
-       */
-      async changeCity (city) {
-        this.cityCode = city.code
-
-        const {indexs} = await axios.get('/index/indexs', {params: {cityCode: city.code}}).then(data => data.data.data)
-        this.indexs = indexs
-      },
-
-      // 登录下方的消息类型切换
-      changeNoticeType (index) {
-        console.log(index)
-        this.noticeType = index
-      },
 
       /**
-       * 切换显示幻灯片
-       * @param index Number  幻灯片对应的索引
+       * [getEnterprose]
+       * 获取企业列表
+       * @author zhoul
+       * @version [version]
+       * @param   {[Object]}  query [查询参数]
+       * @return  {[undefined]}        [无返回值]
        */
-      changeSlider (index) {
-        this.$refs.carousel.setActiveItem(index)
+      async getEnterprose (query = {}) {
+        let q = {
+          // 当前页码 没有默认第一页
+          currentPage: this.currentPage || 1,
+
+          // 省份ID 查找当前省份下的企业
+          addressProvince: this.prov.placeCode,
+
+          // 城市ID 查找当前城市下的企业
+          addressCity: this.city.placeCode,
+
+          // 经营模式
+          compCategory: this.modeId,
+
+          // 每页条数
+          pageSize: this.pageSize,
+
+          keyword: query.keyword
+        }
+
+        this.$router.push({
+          path: `enterprise`,
+          query: ObjectMap(q)
+        })
+      },
+
+      /**
+       * [handleCurrentChange]
+       * element-ui 分页组件中的页码改变
+       * @author zhoul
+       * @version [version]
+       * @return  {[type]}  [description]
+       */
+      handleCurrentChange () {
+        this.getEnterprose()
+      },
+
+      /**
+       * [changePage]
+       * 搜索区域的点击上一页/下一页
+       * @author zhoul
+       * @version [version]
+       * @return  {[type]}  [description]
+       */
+      changePage (t) {
+        if (t === 'prev') {
+          this.currentPage--
+        } else {
+          this.currentPage++
+        }
+      },
+
+      /**
+       * [provChange]
+       * 选择的省份改变，发起ajax请求获取当前省份下的企业
+       * @author zhoul
+       * @version [version]
+       * @param   {Object}  prov [选择的省份对象]
+       * @return  {undefined}       [无返回值]
+       */
+      provChange (prov = {}) {
+        this.prov = prov
+        // 选择省份就要清除市
+        this.city = {}
+      },
+
+      /**
+       * [cityChange 城市选择]
+       * 选择的城市改变，发起ajax请求获取当前城市下的企业
+       * @author zhoul
+       * @version [version]
+       * @param   {Object}  city [选择的城市对象]
+       * @return  {undefined}  [无返回值]
+       */
+      cityChange (city = {}) {
+        this.city = city
+
+        if (!city.placeCode) {
+          this.prov = {}
+        }
+
+        this.getEnterprose()
+      },
+
+      /**
+       * [searchChange 搜索条件]
+       * 搜索条件组件中的搜索条件改变触发搜索
+       * @author zhoul
+       * @version [version]
+       * @return  {[undefined]}  [无返回值]
+       */
+      searchChange (search = {data: {}}) {
+        this[search.type] = search.data.id
+        this.getEnterprose()
       }
-    },
-    components: {
-      Toolnav,
-      Box,
-      NewsList,
-      Logistics,
-      PriceIndex,
-      Hot,
-      Purchase,
-      LoginInfo,
-      Finance
     }
   }
 </script>
 
-<style lang="scss" type="text/scss" rel="stylesheet/scss" scoped>
+<style lang="scss" type="text/scss" scoped>
 
   @import "../element-variables";
 
-  #slider {
-    background-color: #0b89f2;
-    height: 380px;
-    position: relative;
+  .search-wrap .select-show {
+    border: none;
+    border-right: 1px solid #dedede;
+  }
 
-    .el-carousel {
-      height: 380px;
-      position: absolute;
-      left: 0;
-      width: 100%;
-      top: 0;
+  .search-wrap {
+    height: 42px;
+    border: 1px solid #dedede;
+    background: #fff;
 
+    margin-bottom: 20px;
+  }
+
+  .search-condition {
+    float: left;
+    li {
+      float: left;
     }
   }
 
-  .loginInfo {
-    width: 240px;
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    right: calc((100% - 1190px) / 2);
+  .enterprise {
+    padding-bottom: 50px;
   }
 
-  .news {
-    overflow: hidden;
+  .search-info {
+    color: #6e6e6e;
+    margin: 20px 0;
   }
 
-  .industry-news, .dynamic-news {
-    float: left;
-    width: 390px;
-  }
+  .data-wrap {
 
-  .industry-news {
-    padding: 0 20px;
-  }
-
-  // 今日钢价
-
-  .price-index-box {
-    padding: 40px 0;
-    margin-left: -10px;
-    overflow: hidden;
-  }
-
-  .box-price {
-    .citys {
+    li {
       overflow: hidden;
-      li {
-        cursor: pointer;
-        float: left;
-        width: 58px;
-        text-align: center;
-        max-width: 100px;
-        padding: 4px 8px;
-        height: 26px;
-        color: #6e6e6e;
-        border-radius: 2px;
-
-        &:hover {
-          color: $--color-primary;
-        }
-
-        &.active {
-          background-color: $--color-primary;
-          color: #fff;
-        }
-      }
-    }
-  }
-
-  .price-index {
-    float: left;
-    margin-left: 54px;
-  }
-
-  // 采购
-  .purchase {
-    float: left;
-    margin: 0 0 10px 10px;
-  }
-
-  .news-silder {
-    width: 390px;
-    float: left;
-
-    .slider {
-      height: 260px;
+      border: 1px solid #dedede;
+      background: #fff;
       margin-bottom: 10px;
+      padding: 20px;
+
+      &:hover {
+        box-shadow: 0 2px 4px 0 #dedede;
+      }
+
+      header {
+        padding: 10px 0;
+      }
     }
 
-    .title {
-      height: 34px;
-      line-height: 34px;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      color: #fff;
+    .enterprise-info {
+      float: left;
+      width: 616px;
+
+      p {
+        margin-top: 12px;
+        color: #9e9e9e;
+      }
+    }
+
+    .enterprise-product {
+      float: right;
+      width: 450px;
+    }
+
+    .enterprise-name {
+      float: left;
+      padding-right: 100px;
       width: 100%;
-      background-color: rgba(0, 0, 0, .6);
+      line-height: 34px;
+      font-size: 16px;
+      color: #3e3e3e;
+      font-weight: normal;
     }
 
-    .thumbnail {
-      margin-left: -2px;
-      overflow: hidden;
-      li {
-        width: 96px;
-        height: 64px;
-        background-color: pink;
-        margin-left: 2px;
-        float: left;
+    .goshop {
+      float: left;
+      width: 120px;
+      margin-left: -120px;
+      padding: 6px 15px;
+      display: inline-block;
+      background-color: #fff;
+      border: 1px solid $--color-primary;
+      color: $--color-primary;
+      text-align: center;
+      border-radius: 2px;
+      height: 34px;
+
+      &:hover {
+        background-color: $--color-primary;
+        color: #fff;
       }
     }
   }
 
-  .tool-bar {
-    position: fixed;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+  .enterprise-product {
+    .product {
+      float: left;
+      width: 130px;
+      margin-left: 20px;
+    }
 
-  .adv {
-    margin-top: 20px;
-    width: 100%;
-    height: 100px;
-    text-align: center;
+    .img-box {
+      width: 130px;
+      height: 130px;
+      background-color: pink;
 
-    img {
-      max-width: 100%;
-      max-height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .product-name {
+      padding: 6px 0;
+    }
+
+    .product-price {
+      color: #ff2400;
+      padding-top: 6px;
     }
   }
+</style>
 
-  .open-shop {
-    margin-top: 20px;
-    width: 100%;
-    height: 150px;
-    position: relative;
-  }
-
-  .open-shop__btn {
-    position: absolute;
-    right: 30px;
-    top: 30px;
-    width: 90px;
-    height: 108px;
-    text-indent: -9999px;
-    overflow: hidden;
-    background: url("~assets/img/open-shop_btn.png") no-repeat center;
-  }
+<style lang="scss" scoped>
+  @import "../assets/scss/search_page.scss";
 </style>

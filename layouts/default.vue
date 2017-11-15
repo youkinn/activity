@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import '~/element-variables.scss'
+  // import '~/element-variables.scss'
   import Top from '~/components/Top.vue'
   import MyHeader from '~/components/Header.vue'
   import MyFooter from '~/components/Footer.vue'
