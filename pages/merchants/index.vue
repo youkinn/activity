@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div class="banner">
-      <a href="javascript:void(0);">
+      <a @click.prevent="showLogin">
         <img src="~assets/img/merchants/banner.png" alt="">
       </a>
     </div>
@@ -22,7 +22,7 @@
             <img src="~assets/img/merchants/right2.png" alt="">
             <img class="right-icon" src="~assets/img/merchants/right2-icon.png" alt="">
             <div class="text">
-              <div class="name">1.聚诚通服务</div>
+              <div class="name">1.市场机会</div>
               <div class="desc">海量订单 无缝对接</div>
             </div>
           </a>
@@ -262,13 +262,17 @@
     </div>
     <div class="section aeo container">
       <RightTitle class="section-title" title="优质企业"></RightTitle>
-      <!-- <div ref="swiper" class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"> Slide1</div>
-            <div class="swiper-slide"> Slide2</div>
-            <div class="swiper-slide"> Slide3</div>
-        </div>
-      </div> -->
+      <div class="aeo-list">
+        <div v-swiper:mySwiper="swiperOption">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="(banner, index) in banners" :key="index">
+              <img :src="banner" width="160" height="160">
+            </div>
+          </div>
+      </div>
+      <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+      <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+    </div>
     </div>
     <div class="section background container">
       <RightTitle class="section-title" title="活动背景"></RightTitle>
@@ -277,8 +281,9 @@
        在各省入驻聚贸的同时，聚贸也积极为各省市的优质企业免费开通超级店铺，在全方位展示企业形象的同时，推动企业对接全球合作，拓宽全球销售渠道。
       </div>
     </div>
-    <a href="javascript:void(0)" class="btn">立即入驻</a>
-    <FooterAdvert></FooterAdvert>
+    <!-- <a v-if="user.userId" href="checkShopStatus" class="btn">立即入驻</a> -->
+    <a @click.prevent="showLogin" class="btn">立即入驻</a>
+    <FooterAdvert @click="showLogin"></FooterAdvert>
   </div>
 
 </template>
@@ -286,15 +291,13 @@
 <script>
   import Vue from 'vue'
   import axios from '~/plugins/axios'
-  // import swiperAsync from '~/plugins/idangerous.swiper2.7.6'
   import RightItem from '~/components/merchants/right-item.component.vue'
   import RightTitle from '~/components/merchants/right-title.component.vue'
   import FooterAdvert from '~/components/merchants/advert.component.vue'
+  import platform from '~/config/platform/index'
 
   // 登录信息
   import LoginInfo from '~/components/index/LoginInfo'
-
-  // let swiperAsync = import('~/plugins/idangerous.swiper2.7.6')
 
   export default {
     name: 'index',
@@ -305,7 +308,35 @@
     },
     data () {
       return {
-        index: 0
+        index: 0,
+        platform: platform,
+        banners: [
+          '/images/merchants/company-1.png',
+          '/images/merchants/company-2.png',
+          '/images/merchants/company-3.png',
+          '/images/merchants/company-4.png',
+          '/images/merchants/company-5.png',
+          '/images/merchants/company-6.png',
+        ],
+        swiperOption: {
+          // pagination: '.swiper-pagination',
+          slidesPerView: 5,
+          paginationClickable: true,
+          nextButton: '.swiper-button-next',
+          prevButton: '.swiper-button-prev',
+          spaceBetween: 56
+        }
+      }
+    },
+
+    computed: {
+      user: {
+        get () {
+          return this.$store.state.user.user || {}
+        },
+        set (newVal) {
+          this.$store.state.user.user = newVal
+        }
       }
     },
 
@@ -313,30 +344,36 @@
     },
 
     methods: {
-
       showDetail(index){
         this.index = index;
       },
-
-      // async _initSwiper(){
-      //   let Swiper = await swiperAsync;
-      //   const container = this.$refs.swiper;
-      //   this.mySwiper = new Swiper(container, {
-      //     loop: true
-      //     //其他设置
-      //   });
-      // }
+      showLogin () {
+        debugger;
+        if(!this.user.userId){
+          this.$store.commit('SET_OPEN', {opend: true});
+          return;
+        }
+        if(this.user.shopStatus === 1){
+          window.open(platform.JCT_ADDRESS);
+          return;
+        }
+        window.open(`${platform.CONSTANT_CENTER_URL}/shop/fastOpenShop`);
+      }
     },
-
-    // mounted(){
-    //   this._initSwiper();
-    // }
   }
 </script>
 
 <style lang="scss" type="text/scss" rel="stylesheet/scss" scoped>
 
   @import "../../element-variables";
+
+  .aeo-list {
+    position: relative;
+  }
+  .swiper-container {
+    width: 1024px;
+    cursor: pointer;
+  }
 
   .site-main {
     width: 1190px;
@@ -351,6 +388,7 @@
   }
 
   .banner {
+    cursor: pointer;
     img {
       display: block;
       width: 100%;
@@ -845,8 +883,9 @@
 
   .aeo {
     position: relative;
-    height: 225px;
+    height: 283px;
     margin-top: 78.4px;
+    padding-top: 99px;
   }
 
   .background {

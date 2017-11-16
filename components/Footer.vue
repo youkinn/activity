@@ -12,19 +12,16 @@
                   <span :title="item.categoryName">{{ item.categoryName }}</span>
                 </li>
 
-                <li class="jm-footer-content-li"
+                <li class="jm-footer-content-li text-overflow"
                     v-for="(item2,index2) in item.articleContent"
                     :key="index2"
                     v-if="index2<4">
-                  <nuxt-link
-                    :to="{
-                      path: `/help/${item2.articleContentId}`,
-                      query:{categoryCode: item.categoryCode}
-                    }"
+                  <a :href="`${platform.CONSTANT_MALL_URL}/help/${item.categoryCode}/${item2.articleContentId}`"
+                    
                     target="_blank"
                     :title="item2.name">
                     {{item2.name}}
-                  </nuxt-link>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -79,7 +76,8 @@
   import platform from '~/config/platform/index'
   import vuex from 'vuex'
   import website from '~/config/website'
-  const {data} = require('~/mock/footer.json')
+  // const {data} = require('~/mock/footer.json')
+  // CONSTANT_MALL_URL
 
   export default {
     data () {
@@ -92,7 +90,7 @@
         CONSTANT_FAX_NUMBER_DATA: website.fax,
         CONSTANT_EMAIL_DATA: website.email,
 
-        footer: data,//this.$store.state.footer.footer,
+        footer: this.$store.state.footer.footer,
         platform: platform
       }
     },

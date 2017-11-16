@@ -12,9 +12,14 @@ const footer = {
   },
 
   actions: {
-    async getFooter ({state, commit}) {
-      const {data} = await axios.get(`/api/marketInfo/findFooter`)
-      commit('SET_FOOTER', data.rows)
+    async nuxtServerInit({ commit }) {
+      const [{ data: footer }, { data: website }] = await Promise.all([
+        axios.get(`/findFooter`).then(data => data.data),
+        axios.get(`/siteList`).then(data => data.data)
+      ])
+      console.log(footer)
+      commit('SET_FOOTER', footer)
+      commit('SET_WEBSITE', website)
     }
   }
 }

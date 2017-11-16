@@ -51,7 +51,7 @@ module.exports = {
       ws: false
     },
     '/sso': {
-      target: address.SERVER_ADDRESS,
+      target: address.SERVER_ADDRESS +'/api',
       ws: false
     }
   },
@@ -60,7 +60,7 @@ module.exports = {
    ** Global CSS '~/node_modules/element-ui/lib/theme-default/index.css',
    * ~/theme/index.css
    */
-  css: ['~/assets/scss/index.scss'],
+  css: ['~/assets/scss/index.scss', '~plugins/swiper/swiper.css'],
   /*
    ** Add axios globally
    */
@@ -71,7 +71,8 @@ module.exports = {
     '~plugins/checkLogin',
     '~plugins/utils',
     {src: '~plugins/qrcode', ssr: false},
-    {src: '~plugins/baidu', ssr: false}
+    {src: '~plugins/baidu', ssr: false},
+    { src: '~plugins/swiper/swiper.js', ssr: false }
   ],
 
   build: {

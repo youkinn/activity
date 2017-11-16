@@ -84,6 +84,8 @@ export default {
 	CONSTANT_JUMORE_YUN_URL:'http://www.jumoreyun.com',
 	//聚认证（认证服务）
 	CONSTANT_JUMORE_CERT_URL:'http://www.jumorecert.com',
+	//聚认证（认证中文服务）
+	CONSTANT_JUMORE_CERT_CN_URL:'http://www.jumorecert.com.cn',
 	//聚咨询（咨询服务）
 	CONSTANT_JUMORE_CONSULT_URL:'http://www.jumoreconsult.com',
 	//聚贸通

@@ -8,7 +8,7 @@
           <!-- <div class="pull-right">详情请咨询：400-860-0550</div> -->
         </div>
       </div>
-      <div class="jm-advert-right jm-advert-btn pull-right">立即入驻</div>
+      <div class="jm-advert-right jm-advert-btn pull-right" @click.prevent="handle">立即入驻</div>
       <img @click="hide" src="~assets/img/merchants/close.png" alt="" class="jm-advert-close" width="19" height="19">
     </div>
   </div>
@@ -62,7 +62,11 @@ export default {
         windowHeight = document.body.clientHeight;
       }
       return windowHeight;
-    }
+    },
+    handle (){
+      debugger;
+      this.$emit('click');
+    },
   },
   mounted() {
     const docHeight = document.body.offsetHeight;
@@ -93,7 +97,7 @@ export default {
   font-size: 24px;
   color: #fff;
   background-color: #474747;
-  z-index: 1;
+  z-index: 20;
 
   &-container {
     width: 1080px;

@@ -42,138 +42,120 @@
 </template>
 
 <script>
-  import axios from '~/plugins/axios'
-  import login from '~/plugins/checkLogin'
-  import address from '~/config'
-  import website from '~/config/website'
+import axios from "~/plugins/axios";
+import login from "~/plugins/checkLogin";
+import address from "~/config";
+import website from "~/config/website";
 
-  export default {
-    name: 'dialog-login',
+export default {
+  name: "dialog-login",
 
-    data () {
-      return {
-        loading: false,
+  data() {
+    return {
+      loading: false,
 
-        // 公司电话
-        phone: website.localPhone,
+      // 公司电话
+      phone: website.localPhone,
 
-        // 工作时间
-        workTiem: website.workTime,
+      // 工作时间
+      workTiem: website.workTime,
 
-        centerAddress: address.CENTER_ADDRESS,
+      centerAddress: address.CENTER_ADDRESS,
 
-        form: {
-          username: '',
-          password: ''
-        },
-
-        rules: {
-          username: [
-            {required: true, message: '请输入手机号/邮箱', trigger: 'blur'}
-          ],
-
-          password: [
-            {required: true, message: '请输入账号密码', trigger: 'blur'}
-          ]
-        }
-      }
-    },
-
-    methods: {
-
-      close (formName) {
-        this.$refs[formName].resetFields()
+      form: {
+        username: "",
+        password: ""
       },
 
-      login (formName) {
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            login.hasLogin().then(() => {
-            }, () => {
-            })
-            this.loading = true
-            axios.post(`/webapi/v2/validateLoginInfo`, this.form)
-              .then(({data}) => {
-                if (data.code === 200) {
-                  return axios.post(`/webapi/v2/doLogin`, {
-                    activeStatus: 1,
-                    checkCode: '',
-                    username: this.form.username,
-                    password: this.form.password
-                  })
-                } else {
-                  this.$message.error(`${data.desc}`)
-                  return Promise.reject()
-                }
-              })
-              .then(data => {
-                this.$store.commit('SET_OPEN', {opend: false})
-                return axios.get(`/webapi/v2/userInfo`).then(data => data.data.rows || {})
-              })
-              .then(data => {
-                this.$store.commit('SET_USER', data)
-                this.loading = false
-              })
-              .catch(e => {
-                console.log(e)
-                this.loading = false
-              })
-          }
-        })
+      rules: {
+        username: [{ required: true, message: "请输入手机号/邮箱", trigger: "blur" }],
+
+        password: [{ required: true, message: "请输入账号密码", trigger: "blur" }]
       }
+    };
+  },
+
+  methods: {
+    close(formName) {
+      this.$refs[formName].resetFields();
     },
 
-    computed: {
-      /**
+    login(formName) {
+      this.$refs[formName].validate(valid => {
+        if (valid) {
+          this.loading = true;
+          axios
+            .post(`/doLogin`, {
+              activeStatus: 1,
+              checkCode: "",
+              username: this.form.username,
+              password: this.form.password
+            })
+            .then(data => {
+              this.$store.commit("SET_OPEN", { opend: false });
+              return axios
+                .get(`/userInfo`)
+                .then(data => data.data.data || {});
+            })
+            .then(data => {
+              this.$store.commit("SET_USER", data);
+              this.loading = false;
+            })
+            .catch(e => {
+              console.log(e);
+              this.loading = false;
+            });
+        }
+      });
+    }
+  },
+
+  computed: {
+    /**
        * [opend 控制登录弹出的显示和隐藏 使用set/get 防止computed中的属性直接修改报错]
        * @type {Object}
        */
-      opend: {
+    opend: {
+      get() {
+        return this.$store.state.login.opend;
+      },
 
-        get () {
-          return this.$store.state.login.opend
-        },
-
-        set (newVal) {
-          this.$store.state.login.opend = newVal
-        }
-
+      set(newVal) {
+        this.$store.state.login.opend = newVal;
       }
     }
   }
+};
 </script>
 
 
 <style lang="scss" scoped type="text/scss">
+.title {
+  margin-bottom: 30px;
+  font-size: 26px;
+  color: #3e3e3e;
+}
 
+.login-btn {
+  width: 100%;
+}
 
-  .title {
-    margin-bottom: 30px;
-    font-size: 26px;
-    color: #3e3e3e;
+.dialog-footer {
+  border-top: 1px solid #ccc;
+  padding-top: 15px;
+}
+
+.contact {
+  background: url("~assets/img/phone.png") no-repeat 10px center;
+  padding-left: 60px;
+  color: #9e9e9e;
+
+  .phone {
+    font-size: 24px;
   }
 
-  .login-btn {
-    width: 100%;
+  .time {
+    font-size: 12px;
   }
-
-  .dialog-footer {
-    border-top: 1px solid #ccc;
-    padding-top: 15px;
-  }
-
-  .contact {
-    background: url('~assets/img/phone.png') no-repeat 10px center;
-    padding-left: 60px;
-    color: #9e9e9e;
-
-    .phone {
-      font-size: 24px;
-    }
-
-    .time {
-      font-size: 12px;
-    }
-
-  }
+}
 </style>

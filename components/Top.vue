@@ -83,8 +83,8 @@
               </div>
             </div>
           </li>
-          <li alt="聚贸煤炭国际站">
-            <a :href="platform.CONSTANT_MALL_US_URL" target="_blank"><i class="icon icon-en"></i>聚贸煤炭国际站</a>
+          <li alt="JUMORE 聚贸国际站">
+            <a href="https://www.jumoreglobal.com/" target="_blank"><i class="icon icon-en"></i>JUMORE 聚贸国际站</a>
           </li>
         </ul>
       </div>
@@ -131,10 +131,10 @@ export default {
   computed: {
     user: {
       get () {
-        return this.$store.state.user || {}
+        return this.$store.state.user.user || {}
       },
       set (newVal) {
-        this.$store.state.user = newVal
+        this.$store.state.user.user = newVal
       }
     }
   },
