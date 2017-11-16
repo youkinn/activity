@@ -1,17 +1,20 @@
 <template>
-  <div class="jm-right-item" :class="{'last': isLast}">
-    <img :src="'~assets/img/merchants/' + bg-img" alt="">
-    <img class="right-icon" :src="'~assets/img/merchants/' + iconImg" alt="">
-    <div class="text">
-    <div class="name">{{ title }}</div>
-    <div class="desc">{{ desc }}</div>
+  <li class="rights-item clearfix">
+    <div class="rights-item-left pull-left clearfix">
+      <img src="~assets/img/merchants/rights-2.png" alt="" class="rights-icon pull-left" width="96" height="96">
+      <div class="rights-brief pull-left">
+        <div class="rights-name">专属超级店铺</div>
+        <div class="rights-desc">帮助企业提升全网排名</div>
+        <div class="splitline"></div>
+      </div>
     </div>
-  </div>
+    <div class="rights-item-right rights-detail pull-left">专属企业超级店铺，锁定买家眼球，帮助企业展示商品和企业形象，提升全网排名。</div>
+  </li>
 </template>
 
 <script>
 export default {
-    props: ['bg-img', 'iconImg', 'title', 'desc', 'isLast'],
+  props: ["bg-img", "iconImg", "title", "desc", "isLast"]
 };
 </script>
 

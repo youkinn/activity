@@ -1,75 +1,82 @@
 <template>
   <div class="content">
     <div class="banner">
-      <a href="javascript:;">
+      <a href="javascript:void(0);">
         <img src="~assets/img/merchants/banner.png" alt="">
       </a>
     </div>
     <div class="navbar">
       <ul class="list clearfix">
-        <!-- <RightItem class="pull-left" bg-img="right1.png" icon-img="right1-icon.png" title="1.聚诚通服务" desc="商机在手 订单不够"></RightItem> -->
         <li class="item pull-left">
-          <img src="~assets/img/merchants/right1.png" alt="">
-          <img class="right-icon" src="~assets/img/merchants/right1-icon.png" alt="">
-          <div class="text">
-            <div class="name">1.聚诚通服务</div>
-            <div class="desc">商机在手 订单不够</div>
-          </div>
+          <a href="#service">
+            <img src="~assets/img/merchants/right1.png" alt="">
+            <img class="right-icon" src="~assets/img/merchants/right1-icon.png" alt="">
+            <div class="text">
+              <div class="name">1.聚诚通服务</div>
+              <div class="desc">商机在手 订单不够</div>
+            </div>
+          </a>
         </li>
         <li class="item pull-left">
-          <img src="~assets/img/merchants/right2.png" alt="">
-          <img class="right-icon" src="~assets/img/merchants/right2-icon.png" alt="">
-          <div class="text">
-            <div class="name">1.聚诚通服务</div>
-            <div class="desc">海量订单 无缝对接</div>
-          </div>
+          <a href="#chance">
+            <img src="~assets/img/merchants/right2.png" alt="">
+            <img class="right-icon" src="~assets/img/merchants/right2-icon.png" alt="">
+            <div class="text">
+              <div class="name">1.聚诚通服务</div>
+              <div class="desc">海量订单 无缝对接</div>
+            </div>
+          </a>
         </li>
         <li class="item pull-left last">
-          <img src="~assets/img/merchants/right3.png" alt="">
-          <img class="right-icon" src="~assets/img/merchants/right3-icon.png" alt="">
-          <div class="text">
-            <div class="name">3.上线权益</div>
-            <div class="desc">专属店铺 专业服务</div>
-          </div>
+          <a href="#rights">
+            <img src="~assets/img/merchants/right3.png" alt="">
+            <img class="right-icon" src="~assets/img/merchants/right3-icon.png" alt="">
+            <div class="text">
+              <div class="name">3.上线权益</div>
+              <div class="desc">专属店铺 专业服务</div>
+            </div>
+          </a>
         </li>
       </ul>
     </div>
     <div class="section service container">
-      <RightTitle class="section-title" title="聚诚通服务"></RightTitle>
+      <RightTitle class="section-title" title="聚诚通服务" id="service"></RightTitle>
       <ul class="service-list clearfix">
         <li class="service-item pull-left clearfix">
-          <div class="service-intro active pull-left">
+          <div class="service-intro pull-left" :class="{'active': index === 0 }" @click="showDetail(0)">
             <dl>
               <dt class="service-dt">品牌基础建站</dt>
               <dd class="service-dd">• 基础建站</dd>
               <dd class="service-dd">• 无缝对接</dd>
             </dl>
             <div class="arrow-right-icon">
-              <img src="~assets/img/merchants/arrow-right1.png" width="29" height="29" alt="">
+              <img src="~assets/img/merchants/arrow-right2.png" width="29" height="29" alt="">
             </div>
             <img class="intro-img" src="~assets/img/merchants/service1-1.png" width="222" height="199" alt="">
           </div>
-          <div class="service-detail pull-left">
-            <div class="detail-header">
-              <div class="title">全面企业建站服务</div>
-              <div class="sub-title">助您拓展电商市场</div>
+          <transition name="slide">
+            <div class="service-detail pull-left" v-show="index === 0">
+              <div class="detail-header">
+                <div class="title">全面企业建站服务</div>
+                <div class="sub-title">助您拓展电商市场</div>
+              </div>
+              <ul class="detail-items clearfix">
+                <li class="detail-item pull-left">
+                  <img src="~assets/img/merchants/service1-2.png" width="140" height="140" alt="">
+                  <div class="desc1">品牌基础建站</div>
+                  <div class="desc2">50套网站主题风格任选</div>
+                </li>
+                <li class="detail-item pull-left last">
+                  <img src="~assets/img/merchants/service1-3.png" width="140" height="140" alt="">
+                  <div class="desc1">11大垂直行业无缝对接</div>
+                  <div class="desc2">全天候依托聚贸生态圈</div>
+                </li>
+              </ul>
             </div>
-            <ul class="detail-items clearfix">
-              <li class="detail-item pull-left">
-                <img src="~assets/img/merchants/service1-2.png" width="140" height="140" alt="">
-                <div class="desc1">品牌基础建站</div>
-                <div class="desc2">50套网站主题风格任选</div>
-              </li>
-              <li class="detail-item pull-left last">
-                <img src="~assets/img/merchants/service1-3.png" width="140" height="140" alt="">
-                <div class="desc1">11大垂直行业无缝对接</div>
-                <div class="desc2">全天候依托聚贸生态圈</div>
-              </li>
-            </ul>
-          </div>
+          </transition>
         </li>
-        <li class="service-item pull-left">
-          <div class="service-intro">
+        <li class="service-item pull-left clearfix">
+          <div class="service-intro pull-left" :class="{'active': index === 1 }" @click="showDetail(1)">
             <dl>
               <dt class="service-dt">商机全网引流</dt>
               <dd class="service-dd">• 全网引流</dd>
@@ -81,10 +88,29 @@
             </div>
             <img class="intro-img" src="~assets/img/merchants/service2-1.png" width="222" height="199" alt="">
           </div>
-          <div class="service-detail hide"></div>
+          <transition name="slide">
+            <div class="service-detail pull-left" v-show="index === 1">
+              <div class="detail-header">
+                <div class="title">全面企业建站服务</div>
+                <div class="sub-title">助您拓展电商市场</div>
+              </div>
+              <ul class="detail-items clearfix">
+                <li class="detail-item pull-left">
+                  <img src="~assets/img/merchants/service1-2.png" width="140" height="140" alt="">
+                  <div class="desc1">品牌基础建站</div>
+                  <div class="desc2">50套网站主题风格任选</div>
+                </li>
+                <li class="detail-item pull-left last">
+                  <img src="~assets/img/merchants/service1-3.png" width="140" height="140" alt="">
+                  <div class="desc1">11大垂直行业无缝对接</div>
+                  <div class="desc2">全天候依托聚贸生态圈</div>
+                </li>
+              </ul>
+            </div>
+          </transition>
         </li>
-        <li class="service-item pull-left">
-          <div class="service-intro">
+        <li class="service-item pull-left clearfix">
+          <div class="service-intro pull-left" :class="{'active': index === 2 }" @click="showDetail(2)">
             <dl>
               <dt class="service-dt">效能促进交易</dt>
               <dd class="service-dd">• 权威认证</dd>
@@ -96,56 +122,80 @@
             </div>
             <img class="intro-img" src="~assets/img/merchants/service3-1.png" width="222" height="199" alt="">
           </div>
-          <div class="service-detail hide"></div>
+          <transition name="slide">
+            <div class="service-detail pull-left" v-show="index === 2">
+              <div class="detail-header">
+                <div class="title">全面企业建站服务</div>
+                <div class="sub-title">助您拓展电商市场</div>
+              </div>
+              <ul class="detail-items clearfix">
+                <li class="detail-item pull-left">
+                  <img src="~assets/img/merchants/service1-2.png" width="140" height="140" alt="">
+                  <div class="desc1">品牌基础建站</div>
+                  <div class="desc2">50套网站主题风格任选</div>
+                </li>
+                <li class="detail-item pull-left last">
+                  <img src="~assets/img/merchants/service1-3.png" width="140" height="140" alt="">
+                  <div class="desc1">11大垂直行业无缝对接</div>
+                  <div class="desc2">全天候依托聚贸生态圈</div>
+                </li>
+              </ul>
+            </div>
+          </transition>
         </li>
       </ul>
     </div>
     <div class="section chance">
-      <RightTitle class="section-title" title="市场机会"></RightTitle>
+      <RightTitle class="section-title" title="市场机会" id="chance"></RightTitle>
       <div class="chance-content container clearfix">
         <div class="chance-left pull-left">
           <div class="chance-title">连续三年领跑行业</div>
           <ul class="chart-list clearfix">
-            <li class="chart-item pull-left" style="margin-right: 108px;">
+            <li class="chart-item pull-left" style="margin-right: 103px;">
               <div class="chart-title">中国大宗商品B2B市场规模</div>
               <img src="~assets/img/merchants/chart-1.png" alt="" width="273" height="278">
             </li>
-            <li class="chart-item pull-left" style="width:409px;">
+            <li class="chart-item chart-item2 pull-left">
               <div class="chart-title">中国大宗商品行业需求量</div>
               <div class="chart-content clearfix">
-                <img class="pull-left" src="~assets/img/merchants/chart-2.png" alt="" width="190" height="208">
-                <ul class="chart-data pull-left clearfix">
-                  <li class="chart-data-item pull-left">
-                    1
-                  </li>
-                  <li class="chart-data-item pull-left">
-                    1
-                  </li>
-                  <li class="chart-data-item pull-left">
-                    1
-                  </li>
-                  <li class="chart-data-item pull-left">
-                    1
-                  </li>
-                  <li class="chart-data-item pull-left">
-                    1
-                  </li>
-                  <li class="chart-data-item pull-left">
-                    1
-                  </li>
-                  <li class="chart-data-item pull-left last">
-                    1
-                  </li>
-                </ul>
+                <img class="pull-left" src="~assets/img/merchants/chart-2-1.png" alt="" width="409" height="248">
               </div>
             </li>
           </ul>
         </div>
-        <div class="chance-right pull-right"></div>
+        <div class="chance-right pull-right">
+          <div class="chance-title">市场买家介绍</div>
+          <ul class="fn-list">
+            <li class="fn-item clearfix">
+              <img src="~assets/img/merchants/fn-icon-1.png" alt="" class="fn-icon pull-left" width="60" height="70">
+              <div class="fn-detail pull-left">
+                <div class="fn-title">找货源</div>
+                <div class="fn-desc1">每天搜索超<span class="fn-amount">200</span>万次</div>
+                <div class="fn-desc2">寻找自己需要的商品</div>
+              </div>
+            </li>
+            <li class="fn-item clearfix">
+              <img src="~assets/img/merchants/fn-icon-2.png" alt="" class="fn-icon pull-left" width="60" height="70">
+              <div class="fn-detail pull-left">
+                <div class="fn-title">定卖家</div>
+                <div class="fn-desc1">每天<span class="fn-amount">100</span>万家企业</div>
+                <div class="fn-desc2">匹配供求信息</div>
+              </div>
+            </li>
+            <li class="fn-item clearfix">
+              <img src="~assets/img/merchants/fn-icon-3.png" alt="" class="fn-icon pull-left" width="60" height="70">
+              <div class="fn-detail pull-left">
+                <div class="fn-title">定意向</div>
+                <div class="fn-desc1">每天与<span class="fn-amount">500</span>万卖家</div>
+                <div class="fn-desc2">洽淡确定合作意向</div>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="section rights container">
-      <RightTitle class="section-title" title="上线权益"></RightTitle>
+      <RightTitle class="section-title" title="上线权益" id="rights"></RightTitle>
       <div class="rights-intro">
         <div class="rights-header clearfix">
           <div class="rights-header-left pull-left">权益介绍</div>
@@ -212,6 +262,13 @@
     </div>
     <div class="section aeo container">
       <RightTitle class="section-title" title="优质企业"></RightTitle>
+      <!-- <div ref="swiper" class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"> Slide1</div>
+            <div class="swiper-slide"> Slide2</div>
+            <div class="swiper-slide"> Slide3</div>
+        </div>
+      </div> -->
     </div>
     <div class="section background container">
       <RightTitle class="section-title" title="活动背景"></RightTitle>
@@ -220,7 +277,8 @@
        在各省入驻聚贸的同时，聚贸也积极为各省市的优质企业免费开通超级店铺，在全方位展示企业形象的同时，推动企业对接全球合作，拓宽全球销售渠道。
       </div>
     </div>
-    <a href="" class="btn">立即入驻</a>
+    <a href="javascript:void(0)" class="btn">立即入驻</a>
+    <FooterAdvert></FooterAdvert>
   </div>
 
 </template>
@@ -228,22 +286,26 @@
 <script>
   import Vue from 'vue'
   import axios from '~/plugins/axios'
-
+  // import swiperAsync from '~/plugins/idangerous.swiper2.7.6'
   import RightItem from '~/components/merchants/right-item.component.vue'
   import RightTitle from '~/components/merchants/right-title.component.vue'
+  import FooterAdvert from '~/components/merchants/advert.component.vue'
 
   // 登录信息
   import LoginInfo from '~/components/index/LoginInfo'
+
+  // let swiperAsync = import('~/plugins/idangerous.swiper2.7.6')
 
   export default {
     name: 'index',
     components: {
       LoginInfo,
       RightTitle,
+      FooterAdvert,
     },
     data () {
       return {
-        
+        index: 0
       }
     },
 
@@ -251,32 +313,24 @@
     },
 
     methods: {
-      /**
-       * 根据城市code 获取对应的指数
-       * @param city  { code: String }  城市信息
-       * @returns {Promise.<void>}
-       */
-      async changeCity (city) {
-        this.cityCode = city.code
 
-        const {indexs} = await axios.get('/index/indexs', {params: {cityCode: city.code}}).then(data => data.data.data)
-        this.indexs = indexs
+      showDetail(index){
+        this.index = index;
       },
 
-      // 登录下方的消息类型切换
-      changeNoticeType (index) {
-        console.log(index)
-        this.noticeType = index
-      },
-
-      /**
-       * 切换显示幻灯片
-       * @param index Number  幻灯片对应的索引
-       */
-      changeSlider (index) {
-        this.$refs.carousel.setActiveItem(index)
-      }
+      // async _initSwiper(){
+      //   let Swiper = await swiperAsync;
+      //   const container = this.$refs.swiper;
+      //   this.mySwiper = new Swiper(container, {
+      //     loop: true
+      //     //其他设置
+      //   });
+      // }
     },
+
+    // mounted(){
+    //   this._initSwiper();
+    // }
   }
 </script>
 
@@ -397,6 +451,7 @@
       padding-top: 42px;
       color: #fff;
       background-color: #FEFDE9;
+      cursor: pointer;
 
       .service-dt {
         font-weight: 600;
@@ -526,6 +581,10 @@
         width: 273px;
       }
 
+      &-item2 {
+        width: 430px;
+      }
+
       &-title {
         width: 192px;
         margin: 0 auto;
@@ -536,20 +595,25 @@
       }
 
       &-content {
-        padding-top: 56px;
+        padding-top: 22px;
       }
 
       &-data {
-        width: 194px;
+        width: 208px;
         margin-left: 25px;
+        // margin-right: 25px;
       }
 
       &-data-item {
-        width: 62px;
+        width: 90px;
         height: 35px;
         margin-right: 28px;
-        margin-bottom: 25px;
+        margin-bottom: 29px;
         background-color: red;
+
+        &:nth-child(2n) {
+          margin-right: 0;
+        }
 
         &.last {
           margin-bottom: 0;
@@ -557,8 +621,44 @@
       }
     }
 
-    &-img {
+    .fn {
+      &-list {
+        margin-top: 54px;
+      }
 
+      &-item {
+        width: 220px;
+        height: 70px;
+        margin-bottom: 49px;
+      }
+
+      &-icon {
+        margin-right: 13px;
+      }
+
+      &-detail {
+        width: 147px;
+      }
+
+      &-title {
+        font-size: 18px;
+        color: #333;
+        font-weight: 500;
+      }
+
+      &-desc-1,
+      &-desc-2 {
+        font-size: 12px;
+        color: #666;
+      }
+
+      &-amount {
+        font-family: DIN-Bold;
+        font-size: 20px;
+        color: #151515;
+        letter-spacing: 0;
+        font-weight: 500;
+      }
     }
   }
 
@@ -776,5 +876,16 @@
     background-color: #FAE604;
     box-shadow: 0 10px 20px 0 rgba(143,39,0,0.30);
     border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .slide-enter-active{
+    transition: all;
+  }
+  .slide-enter, .slide-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+    display: none;
+    opacity: 0;
+    width: 0;
+    height: 0;
   }
 </style>

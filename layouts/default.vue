@@ -9,7 +9,7 @@
 
     <button v-show="($route.path === '/' && scrollTag)" @click="goTop()" class="back-top"></button>
 
-    <Toolbar class="tool-bar"></Toolbar>
+    <!-- <Toolbar class="tool-bar"></Toolbar> -->
   </div>
 </template>
 
@@ -19,7 +19,7 @@
   import MyHeader from '~/components/Header.vue'
   import MyFooter from '~/components/Footer.vue'
   import Login from '~/components/Login.vue'
-  import Toolbar from '~/components/Toolbar.vue'
+  // import Toolbar from '~/components/Toolbar.vue'
 
   export default {
     data () {
@@ -34,8 +34,8 @@
       Top,
       MyHeader,
       MyFooter,
-      Login,
-      Toolbar
+      Login
+      // Toolbar
     },
     methods: {
       goTop () {
