@@ -4460,7 +4460,7 @@ node-sass@^4.2.0:
     sass-graph "^2.1.1"
     stdout-stream "^1.4.0"
 
-node-sass@^4.6.1:
+node-sass@^4.5.3:
   version "4.6.1"
   resolved "http://registry.npm.taobao.org/node-sass/download/node-sass-4.6.1.tgz#9b331cf943ee5440f199e858941a90d13bc9bfc5"
   dependencies:
