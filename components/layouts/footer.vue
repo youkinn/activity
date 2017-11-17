@@ -60,7 +60,7 @@
               <a :href="platform.CONSTANT_JUMORE_URL" target="_blank">聚贸店上平台</a>
               <a :href="platform.CONSTANT_JUMORE_JMZX_URL" target="_blank">聚贸资讯</a>
 
-              <span style="margin-right:50px; margin-left: 50px;">{{mall}}</span>
+              <span class="mall" >COPYRIGHT @ <a :href="platform.CONSTANT_MALL_URL" target="_blank">聚贸总站 {{ mall }}</a></span>
               <span>{{beian}}</span>
             </p>
           </div>
@@ -82,7 +82,7 @@
   export default {
     data () {
       return {
-        mall: 'COPYRIGHT @ 聚贸总站 www.jumore.com',
+        mall: 'www.jumore.com',
         beian: "浙ICP备15010831号-2",
         CONSTANT_CUSTOM_SERVICE_DATA: website.localPhone,
         CONSTANT_ABROAD_SERVICE_DATA: website.globalPhone,
@@ -300,5 +300,12 @@
 
   .jm-index-footer img {
     margin-right: 5px;
+  }
+  .mall {
+    margin-right:50px;
+    margin-left: 50px;
+    a {
+      margin-left: 0;
+    }
   }
 </style>
