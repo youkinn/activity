@@ -218,6 +218,11 @@ export default {
       float: left;
       border-radius: 100%;
       margin-right: 13px;
+
+      img {
+        width: 54px;
+        height: 54px;
+      }
     }
 
 
