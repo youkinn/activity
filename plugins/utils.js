@@ -8,8 +8,8 @@ import Vue from 'vue'
  * @return 	{String}
  */
 
- function LazyLoadPic(url = {}){
-	 return Vue.filter('imgCdn')(url)
+function LazyLoadPic (url = {}){
+  return Vue.filter('imgCdn')(url)
 }
 
 /**
@@ -20,17 +20,16 @@ import Vue from 'vue'
  * @param   {Object}  obj [处理的对象]
  * @return 	{Object}  newObject [处理后的新对象]
  */
-function ObjectMap(obj = {}){
-	let newObject = {}
+function ObjectMap (obj = {}) {
+  let newObject = {}
 
-	for(let key of Object.keys(obj)){
-		const value = obj[key]
-		if(typeof  value!== 'undefined' && value!=='' && value !== null && !Number.isNaN(value) && value !== -1){
-			newObject[key] = value
-		}
-	}
-
-	return newObject
+  for (let key of Object.keys(obj)) {
+    const value = obj[key]
+    if (typeof value !== 'undefined' && value !== '' && value !== null && !Number.isNaN(value) && value !== -1) {
+      newObject[key] = value
+    }
+  }
+  return newObject
 }
 
 /**
@@ -43,7 +42,7 @@ function ObjectMap(obj = {}){
 function ArrayFind(){
 	if (!Array.prototype.find) {
 	  Object.defineProperty(Array.prototype, 'find', {
-	    value: function(predicate) {
+	    value: function (predicate) {
 	     // 1. Let O be ? ToObject(this value).
 	      if (this == null) {
 	        throw new TypeError('"this" is null or not defined');
@@ -176,4 +175,3 @@ export {
   offset,
 	ArrayIncludes
 }
-
