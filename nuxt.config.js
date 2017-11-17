@@ -20,22 +20,22 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: '聚贸云智库---工业全产业链跨境专家平台',
+    title: '优质商家 火热上线 - 聚贸跨境电商平台',
     meta: [{
       charset: 'utf-8'
     }, {
       hid: 'keyword',
       name: 'keyword',
-      content: '聚贸云智库,云智库,工业全产业链跨境专家平台'
+      content: '聚贸跨境电商平台,聚贸电商,优质商家,共赢,立即入驻'
     }, {
       hid: 'description',
       name: 'description',
-      content: '聚贸云智库是聚贸旗下工业全产业链跨境专家平台，云智库汇聚了全球各行各业领域的顶尖专家和精英人士，为用户提供咨询、反馈信息、进行诊断、预测未来。'
+      content: '秉感恩之心 行共赢之道。'
     }],
     link: [{
       rel: 'icon',
       type: 'image/x-icon',
-      href: address.CDN_ADDRESS + '/favicon.ico'
+      href: address.CDN_ADDRESS + '/favicon.png'
     }]
   },
 

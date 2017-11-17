@@ -1,8 +1,8 @@
 {
-  "name": "nuxt-template",
+  "name": "jumore-activity",
   "version": "1.0.0",
   "description": "Nuxt.js project",
-  "author": "ICELI <woticeli@gmail.com>",
+  "author": "youkinn <03338277@163.com>",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_CONFIG=dev backpack dev",

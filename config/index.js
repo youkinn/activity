@@ -6,7 +6,8 @@
 const NODE_ENV = {
   dev: {
     // CDN 服务器
-    CDN_ADDRESS: 'http://127.0.0.1:8089/',
+    // CDN_ADDRESS: 'http://127.0.0.1:8089/',
+    CDN_ADDRESS: 'http://127.0.0.1:3000/',
     // API 服务器
     SERVER_ADDRESS: 'http://192.168.23.212:8888',
     // SERVER_ADDRESS: 'http://127.0.0.1:7083',

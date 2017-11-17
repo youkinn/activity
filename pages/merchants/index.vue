@@ -281,7 +281,6 @@
        在各省入驻聚贸的同时，聚贸也积极为各省市的优质企业免费开通超级店铺，在全方位展示企业形象的同时，推动企业对接全球合作，拓宽全球销售渠道。
       </div>
     </div>
-    <!-- <a v-if="user.userId" href="checkShopStatus" class="btn">立即入驻</a> -->
     <a @click.prevent="showLogin" class="btn">立即入驻</a>
     <FooterAdvert @click="showLogin"></FooterAdvert>
   </div>
@@ -311,15 +310,16 @@
         index: 0,
         platform: platform,
         banners: [
-          '/images/merchants/company-1.png',
-          '/images/merchants/company-2.png',
-          '/images/merchants/company-3.png',
-          '/images/merchants/company-4.png',
-          '/images/merchants/company-5.png',
-          '/images/merchants/company-6.png',
+          '/img/merchants/company-1.png',
+          '/img/merchants/company-2.png',
+          '/img/merchants/company-3.png',
+          '/img/merchants/company-4.png',
+          '/img/merchants/company-5.png',
+          '/img/merchants/company-6.png',
         ],
         swiperOption: {
-          // pagination: '.swiper-pagination',
+          autoplay : 2500,
+          loop: true,
           slidesPerView: 5,
           paginationClickable: true,
           nextButton: '.swiper-button-next',
@@ -348,7 +348,6 @@
         this.index = index;
       },
       showLogin () {
-        debugger;
         if(!this.user.userId){
           this.$store.commit('SET_OPEN', {opend: true});
           return;
@@ -365,8 +364,6 @@
 
 <style lang="scss" type="text/scss" rel="stylesheet/scss" scoped>
 
-  @import "../../element-variables";
-
   .aeo-list {
     position: relative;
   }
@@ -377,12 +374,12 @@
 
   .site-main {
     width: 1190px;
-    min-width: $--website-width;
+    min-width: 1190px;
     margin: 0 auto;
   }
 
   .content {
-    min-width: $--website-width;
+    min-width: 1190px;
     padding-bottom: 89px;
     background-color: #FD5414;
   }
@@ -585,7 +582,6 @@
     &-content {
       width: 1122px;
       height: 404px;
-      // background-color: red;
     }
 
     &-left {
@@ -597,7 +593,6 @@
     &-right {
       width: 220px;
       height: 404px;
-      // background-color: green;
     }
 
     &-title {
@@ -639,7 +634,6 @@
       &-data {
         width: 208px;
         margin-left: 25px;
-        // margin-right: 25px;
       }
 
       &-data-item {
