@@ -2,7 +2,7 @@
   <div class="content">
     <div class="banner">
       <a @click.prevent="showLogin">
-        <img src="~assets/img/merchants/banner.png" alt="">
+        <img src="~assets/img/merchants/banner.jpg" alt="">
       </a>
     </div>
     <div class="navbar">
