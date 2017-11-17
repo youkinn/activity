@@ -4,9 +4,9 @@ module.exports = {
    * http://pm2.keymetrics.io/docs/usage/application-declaration/
    */
   apps : [
-
     // First application
     {
+      name: 'activity',
       script    : './build/main.js',
       exec_mode : 'cluster',
       instances : 'max',
