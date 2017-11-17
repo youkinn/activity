@@ -115,7 +115,7 @@
 
 <style lang="scss" scoped>
 
-  @import "../element-variables";
+  @import "../../element-variables";
 
   #footer {
     color: #6e6e6e;
@@ -300,8 +300,5 @@
 
   .jm-index-footer img {
     margin-right: 5px;
-
   }
-
-
 </style>

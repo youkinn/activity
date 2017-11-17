@@ -296,12 +296,12 @@
   import platform from '~/config/platform/index'
 
   // 登录信息
-  import LoginInfo from '~/components/index/LoginInfo'
+  // import LoginInfo from '~/components/index/LoginInfo'
 
   export default {
     name: 'index',
     components: {
-      LoginInfo,
+      // LoginInfo,
       RightTitle,
       FooterAdvert,
     },
@@ -915,7 +915,7 @@
   .slide-enter-active{
     transition: all;
   }
-  .slide-enter, .slide-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+  .slide-enter, .slide-leave-to{
     display: none;
     opacity: 0;
     width: 0;

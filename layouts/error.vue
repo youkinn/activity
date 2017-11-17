@@ -17,16 +17,10 @@
 </template>
 
 <script>
-  import Top from '~/components/Top.vue'
-  import MyHeader from '~/components/Header.vue'
-  import MyFooter from '~/components/Footer.vue'
   import Login from '~/components/Login.vue'
 
   export default {
     components: {
-      Top,
-      MyHeader,
-      MyFooter,
       Login
     }
   }
@@ -41,7 +35,6 @@
   .tip {
     font-size: 34px;
     color: #343434;
-    // margin-top: 65px;
     padding: 65px 0;
   }
 </style>

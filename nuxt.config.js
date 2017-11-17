@@ -51,7 +51,7 @@ module.exports = {
       ws: false
     },
     '/sso': {
-      target: address.SERVER_ADDRESS +'/api',
+      target: address.SERVER_ADDRESS + '/api',
       ws: false
     }
   },

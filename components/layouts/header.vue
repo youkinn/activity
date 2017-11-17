@@ -153,8 +153,8 @@ export default {
 </script>
 
 <style lang="scss" type="text/scss" scoped>
-  @import "../element-variables";
-  @import "../assets/scss/main.scss";
+  @import "../../element-variables";
+  @import "../../assets/scss/main.scss";
 
   #Top {
     font-size: 12px;
