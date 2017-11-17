@@ -910,6 +910,11 @@
     box-shadow: 0 10px 20px 0 rgba(143,39,0,0.30);
     border-radius: 4px;
     cursor: pointer;
+
+    &:hover {
+      color: #fff;
+      background-color: #6095FF;
+    }
   }
 
   .slide-enter-active{

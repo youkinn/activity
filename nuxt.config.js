@@ -66,7 +66,7 @@ module.exports = {
    */
   plugins: [
     '~plugins/element-ui',
-    '~plugins/filter/',
+    // '~plugins/filter/',
     '~plugins/directive/',
     '~plugins/checkLogin',
     '~plugins/utils',

@@ -64,7 +64,6 @@ export default {
       return windowHeight;
     },
     handle (){
-      debugger;
       this.$emit('click');
     },
   },
@@ -136,6 +135,10 @@ export default {
     box-shadow: 0 10px 20px 0 rgba(143, 39, 0, 0.3);
     border-radius: 4px;
     cursor: pointer;
+
+    &:hover {
+      background-color: #FD5414;
+    }
   }
 }
 
