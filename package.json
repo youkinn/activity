@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_CONFIG=dev backpack dev",
-    "mock": "nodemon -w server -e js,json mock/index.js",
+    "mock": "nodemon -w server -e js,json server/mock/index.js",
     "build:test": "et && cross-env NODE_CONFIG=test nuxt build && backpack build",
     "build:pre": "cross-env NODE_CONFIG=pre nuxt build && backpack build",
     "build:prod": "cross-env NODE_CONFIG=prod nuxt build && backpack build",
