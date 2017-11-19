@@ -9,7 +9,8 @@ const NODE_ENV = {
     // CDN_ADDRESS: 'http://127.0.0.1:8089/',
     CDN_ADDRESS: 'http://127.0.0.1:3000/',
     // API 服务器
-    SERVER_ADDRESS: 'http://192.168.23.212:8888',
+    SERVER_ADDRESS: 'http://192.168.6.100:8001',
+    // SERVER_ADDRESS: 'http://192.168.23.212:8888',
     // SERVER_ADDRESS: 'http://api.jumoreys.test2',
     // 认证中心
     USERCENTER_ADDRESS: 'http://uc3.dev.com',

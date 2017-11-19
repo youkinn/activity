@@ -11,13 +11,10 @@
                 <li class="jm-footer-title-li">
                   <span :title="item.categoryName">{{ item.categoryName }}</span>
                 </li>
-
                 <li class="jm-footer-content-li text-overflow"
-                    v-for="(item2,index2) in item.articleContent"
-                    :key="index2"
-                    v-if="index2<4">
+                    v-for="(item2,index2) in item.articleContent.slice(0, 4)"
+                    :key="index2">
                   <a :href="`${platform.CONSTANT_MALL_URL}/help/${item.categoryCode}/${item2.articleContentId}`"
-                    
                     target="_blank"
                     :title="item2.name">
                     {{item2.name}}

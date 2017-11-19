@@ -1,0 +1,76 @@
+/**
+ * 站点底部友链
+ *
+ * @url /findFooter
+ *
+ * 参数说明：
+ *
+ * 
+ */
+{
+  "code": 0,
+  "data": [
+    {
+      "articleContent": [
+        {
+          "articleContentId": 119767,
+          "name": "关于我们"
+        },
+        {
+          "articleContentId": 142662,
+          "name": "联系我们 "
+        },
+        {
+          "articleContentId": 100015,
+          "name": "欢迎合作 "
+        }
+      ],
+      "categoryCode": "00000201 ",
+      "categoryName": "关于聚贸 "
+    },
+    {
+      "articleContent": [
+        {
+          "articleContentId": 119771,
+          "name": "注册新用户"
+        },
+        {
+          "articleContentId": 119768,
+          "name": "如何开通店铺"
+        },
+        {
+          "articleContentId": 119770,
+          "name": "卖家入门"
+        },
+        {
+          "articleContentId": 119772,
+          "name": "卖家入门"
+        }
+      ],
+      "categoryCode": "00000202 ",
+      "categoryName": "新手入门 "
+    },
+    {
+      "articleContent": [
+        {
+          "articleContentId": 119775,
+          "name": "信息发布规则"
+        },
+        {
+          "articleContentId": 119776,
+          "name": "账户管理规则 "
+        },
+        {
+          "articleContentId": 119778,
+          "name": "交易规则"
+        },
+        {
+          "articleContentId": 119777,
+          "name": "入驻规则"
+        }
+      ],
+      "categoryCode": "00000203 ",
+      "categoryName": "常见问题 "
+    }
+  ]
+}
