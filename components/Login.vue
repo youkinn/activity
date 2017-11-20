@@ -8,7 +8,7 @@
             v-model="form.username"
             auto-complete="off"
             :autofocus="true"
-            placeholder="请输入手机号/邮箱">
+            placeholder="请输入手机号码">
           </el-input>
         </el-form-item>
 
@@ -70,9 +70,9 @@ export default {
       },
 
       rules: {
-        username: [{ required: true, message: "请输入手机号/邮箱", trigger: "blur" }],
+        username: [{ required: true, message: "请输入手机号码", trigger: "blur" }],
 
-        password: [{ required: true, message: "请输入账号密码", trigger: "blur" }]
+        password: [{ required: true, message: "请输入密码", trigger: "blur" }]
       }
     };
   },
@@ -94,6 +94,11 @@ export default {
               password: this.form.password
             })
             .then(data => {
+              if(data.data.code != 0){
+                console.log(data.data);
+                this.$message.error(data.data.desc);
+                return;
+              }
               this.$store.commit("SET_OPEN", { opend: false });
               return axios
                 .get(`/userInfo`)

@@ -2,7 +2,7 @@
   <div class="jm-advert" v-show="isShow">
     <div class="jm-advert-container clearfix">
       <div class="jm-advert-left pull-left">
-        <div class="jm-advert-desc1">现在加入<span class="f30">聚诚通</span>，即享<span class="f38">立减券</span>，<span class="48">50</span>个首页<span class="f36">橱窗广告</span>限量领</div>
+        <div class="jm-advert-desc1">现在加入<span class="f30">聚诚通</span>，即享<span class="f38">5折</span>，<span class="48">50</span>个首页<span class="f36">橱窗广告</span>限量领</div>
         <div class="jm-advert-desc2 clearfix">
           <div class="pull-left">万千优质商家火热上线中...</div>
           <!-- <div class="pull-right">详情请咨询：400-860-0550</div> -->

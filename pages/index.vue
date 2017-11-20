@@ -13,7 +13,7 @@
             <img class="right-icon" src="~assets/img/merchants/right1-icon.png" alt="">
             <div class="text">
               <div class="name">1.聚诚通服务</div>
-              <div class="desc">商机在手 订单不够</div>
+              <div class="desc">商机在手 订单不愁</div>
             </div>
           </a>
         </li>
@@ -22,7 +22,7 @@
             <img src="~assets/img/merchants/right2.png" alt="">
             <img class="right-icon" src="~assets/img/merchants/right2-icon.png" alt="">
             <div class="text">
-              <div class="name">1.市场机会</div>
+              <div class="name">2.市场机会</div>
               <div class="desc">海量订单 无缝对接</div>
             </div>
           </a>
@@ -91,8 +91,8 @@
           <transition name="slide" mode="out-in">
             <div class="service-detail pull-left" v-show="index === 1">
               <div class="detail-header">
-                <div class="title">全面企业建站服务</div>
-                <div class="sub-title">助您拓展电商市场</div>
+                <div class="title">诚信实力全网推广</div>
+                <div class="sub-title">流量变销量</div>
               </div>
               <ul class="detail-items clearfix">
                 <li class="detail-item pull-left">
@@ -105,13 +105,13 @@
                   <img src="~assets/img/merchants/service2-3.png" alt="">
                   <div class="desc1">一键推广</div>
                   <div class="desc2">商品信息一键推送</div>
-                  <div class="desc2">全球百万产业</div>
+                  <div class="desc2">全球百万企业</div>
                 </li>
                 <li class="detail-item pull-left last">
                   <img src="~assets/img/merchants/service2-4.png" alt="">
                   <div class="desc1">商机推送</div>
                   <div class="desc2">商机智能推送</div>
-                  <div class="desc2">卖家信息优先掌握</div>
+                  <div class="desc2">买家信息优先掌握</div>
                 </li>
               </ul>
             </div>
@@ -133,8 +133,8 @@
           <transition name="slide" mode="out-in">
             <div class="service-detail pull-left" v-show="index === 2">
               <div class="detail-header">
-                <div class="title">全面企业建站服务</div>
-                <div class="sub-title">助您拓展电商市场</div>
+                <div class="title">建立买家信任</div>
+                <div class="sub-title">快速促成交易</div>
               </div>
               <ul class="detail-items clearfix">
                 <li class="detail-item pull-left">
@@ -215,7 +215,7 @@
       <div class="rights-intro">
         <div class="rights-header clearfix">
           <div class="rights-header-left pull-left">权益介绍</div>
-          <div class="rights-header-right pull-left">入驻聚贸，聚贸会帮助企业全方位展示品牌形象，同时推动企业对接全球资源，拓宽全球销售渠道。</div>
+          <div class="rights-header-right pull-left">工业全产业链及全服务业生态化跨境电商平台上面的百万级别的流量曝光，帮助企业树立品牌形象。</div>
         </div>
         <ul class="rights-list">
           <li class="rights-item clearfix">
@@ -262,7 +262,7 @@
         <li class="goodness-item pull-left">
           <img class="goodness-icon" src="~assets/img/merchants/goodness-1.png" alt="" width="180" height="180">
           <div class="goodness-name">全球化市场资源</div>
-          <div class="goodness-desc">与全球150多个国家达成合作，全球超100万家企业入驻，超100万家国际商协会机构。</div>
+          <div class="goodness-desc">与全球150多个国家达成合作，全球超100万家企业入驻，超100家国际商协会机构。</div>
         </li>
         <li class="goodness-item pull-left">
           <img class="goodness-icon" src="~assets/img/merchants/goodness-2.png" alt="" width="180" height="180">
@@ -272,7 +272,7 @@
         <li class="goodness-item pull-left last">
           <img class="goodness-icon" src="~assets/img/merchants/goodness-3.png" alt="" width="180" height="180">
           <div class="goodness-name">全方位服务支持</div>
-          <div class="goodness-desc">聚贸通过旗下金融、物流、外贸、大数聚、认证等服务平台，为企业提供全方面的服务支持。</div>
+          <div class="goodness-desc">聚贸通过旗下金融、物流、外贸、大数据、认证等服务平台，为企业提供全方面的服务支持。</div>
         </li>
       </ul>
     </div>
@@ -548,9 +548,10 @@
       background-color: #FEFDE9;
 
       .detail-header{
-        width: 144px;
+        width: 244px;
         height: 45px;
         margin: 0 auto 54px auto;
+        text-align: center;
       }
 
       .title {
@@ -561,7 +562,7 @@
 
       .sub-title {
         font-size: 14px;
-        color: #2A2A2A;
+        color: #666;
         line-height: 25px;
       }
     }
@@ -719,8 +720,8 @@
         font-weight: 500;
       }
 
-      &-desc-1,
-      &-desc-2 {
+      &-desc1,
+      &-desc2 {
         font-size: 12px;
         color: #666;
       }
