@@ -40,31 +40,31 @@ const NODE_ENV = {
   },
   pre: {
     // CDN 服务器
-    CDN_ADDRESS: 'http://127.0.0.1:3000/_nuxt/',
+    CDN_ADDRESS: 'https://activity.jumoremt.com.pre/_nuxt/',
     // API 服务器
-    SERVER_ADDRESS: 'http://webapi.jtt.com',
+    SERVER_ADDRESS: 'http://api.jumoremt.com.pre',
     // 认证中心
-    USERCENTER_ADDRESS: 'http://test-uc3.dev.com',
+    USERCENTER_ADDRESS: 'https://prepassport.jumore.com/cas',
     // 中台地址
-    CENTER_ADDRESS: 'http://center.jtt.com',
+    CENTER_ADDRESS: 'https://ecenter.jumore.com.pre',
     // 上传地址
-    UPLOAD_ADDRESS: 'http://image5.jm.com',
+    UPLOAD_ADDRESS: 'https://uploadapi.jumore.com.pre',
     // 图片服务器
-    IMG_ADDRESS: 'http://image.jm.com'
+    IMG_ADDRESS: 'https://img.jumore.com.pre'
   },
   prod: {
     // CDN 服务器
-    CDN_ADDRESS: 'http://127.0.0.1:3000/_nuxt/',
+    CDN_ADDRESS: 'https://activity.jumoremt.com/_nuxt/',
     // API 服务器
-    SERVER_ADDRESS: 'http://webapi.jtt.com',
+    SERVER_ADDRESS: 'http://api.jumoremt.com',
     // 认证中心
-    USERCENTER_ADDRESS: 'http://test-uc3.dev.com',
+    USERCENTER_ADDRESS: 'https://passport.jumore.com/cas',
     // 中台地址
-    CENTER_ADDRESS: 'http://center.jtt.com',
+    CENTER_ADDRESS: 'https://ecenter.jumore.com',
     // 上传地址
-    UPLOAD_ADDRESS: 'http://image5.jm.com',
+    UPLOAD_ADDRESS: 'https://uploadapi.jumore.com',
     // 图片服务器
-    IMG_ADDRESS: 'http://image.jm.com'
+    IMG_ADDRESS: 'https://img.jumore.com'
   }
 }
 
