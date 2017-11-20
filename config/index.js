@@ -40,7 +40,7 @@ const NODE_ENV = {
   },
   pre: {
     // CDN 服务器
-    CDN_ADDRESS: 'https://activity.jumoremt.com.pre/_nuxt/',
+    CDN_ADDRESS: 'https://activity.jumore.com.pre/_nuxt/',
     // API 服务器
     SERVER_ADDRESS: 'http://api.jumoreys.com.pre',
     // 认证中心
