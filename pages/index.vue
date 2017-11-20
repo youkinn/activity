@@ -403,7 +403,7 @@
   .banner {
     height: 615px;
     cursor: pointer;
-    background: url("~assets/img/merchants/banner.jpg");
+    background: url("~assets/img/merchants/banner.jpg") center;
     background-size: cover;
     img {
       display: block;
