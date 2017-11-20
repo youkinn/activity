@@ -1,9 +1,9 @@
 <template>
   <div class="content">
-    <div class="banner">
-      <a @click.prevent="showLogin">
+    <div class="banner" @click.prevent="showLogin">
+      <!-- <a @click.prevent="showLogin">
         <img src="~assets/img/merchants/banner.jpg" alt="">
-      </a>
+      </a> -->
     </div>
     <div class="navbar">
       <ul class="list clearfix">
@@ -401,7 +401,10 @@
   }
 
   .banner {
+    height: 615px;
     cursor: pointer;
+    background: url("~assets/img/merchants/banner.jpg");
+    background-size: cover;
     img {
       display: block;
       width: 100%;
