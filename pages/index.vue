@@ -215,7 +215,7 @@
       <div class="rights-intro">
         <div class="rights-header clearfix">
           <div class="rights-header-left pull-left">权益介绍</div>
-          <div class="rights-header-right pull-left">工业全产业链及全服务业生态化跨境电商平台上面的百万级别的流量曝光，帮助企业树立品牌形象。</div>
+          <div class="rights-header-right pull-left">入驻聚贸，聚贸会帮助企业全方位展示品牌形象，同时推动企业对接全球资源，拓宽全球销售渠道。</div>
         </div>
         <ul class="rights-list">
           <li class="rights-item clearfix">
@@ -227,7 +227,7 @@
                 <div class="splitline"></div>
               </div>
             </div>
-            <div class="rights-item-right rights-detail pull-left">全球首家全品类大宗商品及工业全产业链跨境电商平台上面的百万级别的流量曝光，帮助企业树立品牌形象。</div>
+            <div class="rights-item-right rights-detail pull-left">工业全产业链及全服务业生态化跨境电商平台上面的百万级别的流量曝光，帮助企业树立品牌形象。</div>
           </li>
           <li class="rights-item clearfix">
             <div class="rights-item-left pull-left clearfix">
