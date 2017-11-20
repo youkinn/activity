@@ -33,7 +33,7 @@
           </span>
           <div class="l"><a @click.prevent="showLogin" class="header-margin-l-15" v-if="!user.userId">请登录</a></div>
           <div class="l"  v-if="!user.userId"><span class="s"></span></div>
-          <div class="l"><a :href="`${centerAddress}/register/register?platformCode=1008&refUrl=${fullpath}`" v-if="!user.userId" target="_blank">免费注册</a>
+          <div class="l"><a :href="`${centerAddress}/register/register?platformCode=1005&refUrl=${fullpath}`" v-if="!user.userId" target="_blank">免费注册</a>
         </div>
       </div>
 

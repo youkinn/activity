@@ -22,8 +22,8 @@
         </el-form-item>
 
         <el-form-item class="item-actions">
-          <a target="_blank" :href="`${centerAddress}/user/toRegister`" class="pull-left">免费注册</a>
-          <a :href="`${centerAddress}/user/forgetPassword?flag=1`" target="_blank" class="pull-right">忘记密码</a>
+          <a target="_blank" :href="`${centerAddress}/register/register?platformCode=1005&refUrl=${fullpath}`" class="pull-left">免费注册</a>
+          <a :href="`${centerAddress}/forgetPasswordStart`" target="_blank" class="pull-right">忘记密码</a>
         </el-form-item>
 
         <el-form-item>
@@ -52,6 +52,8 @@ export default {
 
   data() {
     return {
+      fullpath: '',
+
       loading: false,
 
       // 公司电话
@@ -124,6 +126,10 @@ export default {
         this.$store.state.login.opend = newVal;
       }
     }
+  },
+
+  mounted(){
+    this.fullpath = location.href;
   }
 };
 </script>
@@ -157,5 +163,9 @@ export default {
   .time {
     font-size: 12px;
   }
+}
+
+.item-actions a:hover {
+  color: #D93900;
 }
 </style>

@@ -28,7 +28,7 @@ app.use(function(req, res, next) {
 
 // mock json 数据
 // 文档: https://github.com/52cik/express-mockjs
-app.use('/api/1008', mock(path.join(__dirname, './data')));
+app.use('/api/1005', mock(path.join(__dirname, './data')));
 
 // 404
 app.use(function(req, res, next) {
