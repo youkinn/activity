@@ -4,7 +4,7 @@
     <div class="clearfix">
       <div class="jm-header-content-left pull-left clearfix"> 
         <div class="l" :class="{'welcome-text': !user.userId}">
-          <span v-if="!user.userId" class="ng-binding">您好，欢迎来到聚贸化工平台</span>
+          <span v-if="!user.userId" class="ng-binding">欢迎来到聚贸电子商务平台</span>
           <span v-if="user.userId" class="ng-binding">欢迎您</span></div>
           <span class="userinfobox" v-if="user.userId">
             <span class="name">{{user.realName}}<span class="line"></span></span>
