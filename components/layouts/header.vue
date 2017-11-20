@@ -2,45 +2,38 @@
 <div id="Top">
   <div class="container">
     <div class="clearfix">
-      <div class="login-info pull-left">
-        <div class="site-nav" v-if="!user.userId">
-          <span class="welcome-text">您好，欢迎来到聚贸煤炭平台!</span>
-          <ul class="nav">
-            <li>
-              <a :href="centerAddress" @click.prevent="showLogin()">请登录</a>
-            </li>
-            <li>
-              <a :href="`${centerAddress}/register/register?platformCode=1001&refUrl=${fullpath}`" target="_blank">免费注册</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="user" v-if="user.userId">
-          <span>欢迎您</span>
-          <div class="user-info">
-            <i class="user-name">{{user.realName}}</i>
-            <div class="content">
-              <div class="img-box">
+      <div class="jm-header-content-left pull-left clearfix"> 
+        <div class="l" :class="{'welcome-text': !user.userId}">
+          <span v-if="!user.userId" class="ng-binding">您好，欢迎来到聚贸化工平台</span>
+          <span v-if="user.userId" class="ng-binding">欢迎您</span></div>
+          <span class="userinfobox" v-if="user.userId">
+            <span class="name">{{user.realName}}<span class="line"></span></span>
+            <div class="logininfodrog" >
+              <div class="pr">
                 <img class="img-responsive" v-if="user.imageUrl!=''&&user.imageUrl!=undefined" :src="user.imageUrl | imgCdn">
-                <!--<img class="img-responsive" v-if="user.imageUrl==''||user.imageUrl==undefined" src="~assets/img/common/userImg.png">-->
-              </div>
-              <div class="compny-info">
-                <h4 class="compny-name text-overflow">
-                  <span :title="user.companyName">{{user.companyName}}</span>
-                </h4>
-
-                <div class="text-overflow">
-                  <span class="text-ligingray">岗位：</span>{{user.roleName}}
+                <img class="img-responsive" v-if="(user.imageUrl==''||user.imageUrl==undefined) && (user.sex == 0 || user.sex == 2 )" src="~assets/img/userImg.png">
+                <img class="img-responsive" v-if="(user.imageUrl==''||user.imageUrl==undefined) && user.sex == 1" src="~assets/img/userImg2.png">
+                  
+                <div class="userbox">
+                  <p class="p1" :title="user.companyName">{{user.companyName}}</p>
+                  <p class="p2">{{user.roleName}}</p>
+                  <p class="pimg">
+                    <i class="i_yrz" v-if="user.validStatus==2" title="企业已认证"></i>
+                    <i class="i_wrz" v-if="user.validStatus!=2&&user.validStatus!=undefined" title="企业未认证"></i>
+                    <img class="imgicon" v-if="user.vipUserLevel=='2'" title="黄金会员" src="~assets/img/jcthy1_1.png" width="20">
+                    <img class="imgicon" v-if="user.vipUserLevel=='3'" title="铂金会员" src="~assets/img/jcthy1_2.png" width="20">
+                  </p>
+                  <p class="p3">
+                    <a :href="`${centerAddress}/index?forwardUrl=/vip/vipList`"  class="newa" target="_blank">账号管理</a>
+                    <a :href="`${userCenterAddress}/logout?returnUrl=${fullpath}`" class="class">退出</a>
+                  </p>
                 </div>
-
-                <div class="actions">
-                  <a :href="`${centerAddress}/index?forwardUrl=/vip/vipList`">帐号管理</a>
-                  <a :href="`${userCenterAddress}/logout?returnUrl=${fullpath}`" class="pull-right exit">退出</a>
                 </div>
-              </div>
             </div>
-          </div>
-          <a :href="`${userCenterAddress}/logout?returnUrl=${fullpath}`">退出</a>
+          </span>
+          <div class="l"><a @click.prevent="showLogin" class="header-margin-l-15" v-if="!user.userId">请登录</a></div>
+          <div class="l"  v-if="!user.userId"><span class="s"></span></div>
+          <div class="l"><a :href="`${centerAddress}/register/register?platformCode=1008&refUrl=${fullpath}`" v-if="!user.userId" target="_blank">免费注册</a>
         </div>
       </div>
 
@@ -155,6 +148,105 @@ export default {
 <style lang="scss" type="text/scss" scoped>
   @import "../../element-variables";
   @import "../../assets/scss/main.scss";
+
+  .jm-header-content-left .l{ 
+    float:left;
+    height: 32px;
+    line-height: 32px;
+  }
+  .jm-header-content-left .s{ display: block; margin: 11px 10px 0; width: 1px; height: 11px; background: #dedede;}
+  .i_yrz{ display: inline-block; width: 18px; height: 20px; background: url(~assets/img/jcticon2.png) no-repeat; margin-right: 5px; vertical-align: middle;}
+  .i_wrz{ display: inline-block; width: 18px; height: 20px; background: url(~assets/img/jcticon1.png) no-repeat; margin-right: 5px;vertical-align: middle;}
+  .userinfobox{
+          float: right;
+    height: 32px;
+    position: relative;
+    text-align: center;
+  }
+  .header-margin-l-15 {
+    cursor: pointer;
+  }
+  .userinfobox .name{
+    float: left;
+    display: inline-block;
+    padding:0 10px;
+    height: 32px;
+    line-height: 30px;
+    border:1px solid #f5f5f5;
+    color: #f64f38;
+    margin-left: 10px;
+  }
+  .userinfobox .name .line{
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 1px;
+    left: 0;
+    background: #f5f5f5;
+    z-index: 10;
+  }
+  .userinfobox:hover .name{
+    background: #fff;
+    border:1px solid #dedede;
+    border-bottom:1px solid #fff;
+  }
+  .userinfobox:hover .name .line{
+    background: #fff;
+  }
+  .userinfobox:hover .logininfodrog{
+    display: block;
+  }
+  .logininfodrog{
+    position: absolute;
+    top:30px;
+    left:-50px;
+    background:#ffffff;
+    border:1px solid #dedede;
+    border-radius:0 0 2px 2px;
+    width:248px;
+    font-size: 14px;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    text-align: left;
+    z-index: 99;
+    display: none;
+	}
+  .logininfodrog .pr{ position: relative;}
+  .logininfodrog .img-responsive{
+      position: absolute;
+      top: 25px;
+      left: 23px;
+      width: 52px;
+      height: 52px;
+  }
+  .logininfodrog .userbox{
+      padding: 20px 10px 10px 87px;
+  }
+  .logininfodrog .userbox .p1,.logininfodrog .userbox .p2{
+      display: block;
+      overflow: hidden;
+      height: 20px;
+      line-height: 20px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+  }
+  .logininfodrog .userbox .p1{ margin-bottom: 4px;}
+  .logininfodrog .userbox .p2{ margin-bottom: 4px;}
+  .logininfodrog .userbox .pimg{  line-height: 0; margin-bottom: 4px;}
+  .logininfodrog .userbox .pimg .imgicon{ vertical-align: middle;}
+  .logininfodrog .userbox .newa{
+      margin: 0;
+      margin-right:20px;
+      font-size:14px;
+      color:#f64f38;
+  }
+  .ng-binding {
+    height: 32px;
+    line-height: 32px;
+  }
+  .welcome-text {
+    margin-right: 51px;
+  }
 
   #Top {
     font-size: 12px;

@@ -42,8 +42,8 @@
     <div class="section service container">
       <RightTitle class="section-title" title="聚诚通服务" id="service"></RightTitle>
       <ul class="service-list clearfix">
-        <li class="service-item pull-left clearfix">
-          <div class="service-intro pull-left" :class="{'active': index === 0 }" @click="showDetail(0)">
+        <li class="service-item service-item-1 pull-left clearfix">
+          <div class="service-intro pull-left" :class="{'active': index === 0 }" @mouseover="showDetail(0)">
             <dl>
               <dt class="service-dt">品牌基础建站</dt>
               <dd class="service-dd">• 基础建站</dd>
@@ -54,7 +54,7 @@
             </div>
             <img class="intro-img" src="~assets/img/merchants/service1-1.png" width="222" height="199" alt="">
           </div>
-          <transition name="slide">
+          <transition name="slide" mode="out-in">
             <div class="service-detail pull-left" v-show="index === 0">
               <div class="detail-header">
                 <div class="title">全面企业建站服务</div>
@@ -62,12 +62,12 @@
               </div>
               <ul class="detail-items clearfix">
                 <li class="detail-item pull-left">
-                  <img src="~assets/img/merchants/service1-2.png" width="140" height="140" alt="">
+                  <img src="~assets/img/merchants/service1-2.png" alt="">
                   <div class="desc1">品牌基础建站</div>
                   <div class="desc2">50套网站主题风格任选</div>
                 </li>
                 <li class="detail-item pull-left last">
-                  <img src="~assets/img/merchants/service1-3.png" width="140" height="140" alt="">
+                  <img src="~assets/img/merchants/service1-3.png" alt="">
                   <div class="desc1">11大垂直行业无缝对接</div>
                   <div class="desc2">全天候依托聚贸生态圈</div>
                 </li>
@@ -75,8 +75,8 @@
             </div>
           </transition>
         </li>
-        <li class="service-item pull-left clearfix">
-          <div class="service-intro pull-left" :class="{'active': index === 1 }" @click="showDetail(1)">
+        <li class="service-item service-item-2 pull-left clearfix">
+          <div class="service-intro pull-left" :class="{'active': index === 1 }" @mouseover="showDetail(1)">
             <dl>
               <dt class="service-dt">商机全网引流</dt>
               <dd class="service-dd">• 全网引流</dd>
@@ -88,7 +88,7 @@
             </div>
             <img class="intro-img" src="~assets/img/merchants/service2-1.png" width="222" height="199" alt="">
           </div>
-          <transition name="slide">
+          <transition name="slide" mode="out-in">
             <div class="service-detail pull-left" v-show="index === 1">
               <div class="detail-header">
                 <div class="title">全面企业建站服务</div>
@@ -96,21 +96,29 @@
               </div>
               <ul class="detail-items clearfix">
                 <li class="detail-item pull-left">
-                  <img src="~assets/img/merchants/service1-2.png" width="140" height="140" alt="">
-                  <div class="desc1">品牌基础建站</div>
-                  <div class="desc2">50套网站主题风格任选</div>
+                  <img src="~assets/img/merchants/service2-2.png" alt="">
+                  <div class="desc1">全网引流</div>
+                  <div class="desc2">聚贸40个子网站</div>
+                  <div class="desc2">推广引流</div>
                 </li>
                 <li class="detail-item pull-left last">
-                  <img src="~assets/img/merchants/service1-3.png" width="140" height="140" alt="">
-                  <div class="desc1">11大垂直行业无缝对接</div>
-                  <div class="desc2">全天候依托聚贸生态圈</div>
+                  <img src="~assets/img/merchants/service2-3.png" alt="">
+                  <div class="desc1">一键推广</div>
+                  <div class="desc2">商品信息一键推送</div>
+                  <div class="desc2">全球百万产业</div>
+                </li>
+                <li class="detail-item pull-left last">
+                  <img src="~assets/img/merchants/service2-4.png" alt="">
+                  <div class="desc1">商机推送</div>
+                  <div class="desc2">商机智能推送</div>
+                  <div class="desc2">卖家信息优先掌握</div>
                 </li>
               </ul>
             </div>
           </transition>
         </li>
-        <li class="service-item pull-left clearfix">
-          <div class="service-intro pull-left" :class="{'active': index === 2 }" @click="showDetail(2)">
+        <li class="service-item service-item-3 pull-left clearfix">
+          <div class="service-intro pull-left" :class="{'active': index === 2 }" @mouseover="showDetail(2)">
             <dl>
               <dt class="service-dt">效能促进交易</dt>
               <dd class="service-dd">• 权威认证</dd>
@@ -122,7 +130,7 @@
             </div>
             <img class="intro-img" src="~assets/img/merchants/service3-1.png" width="222" height="199" alt="">
           </div>
-          <transition name="slide">
+          <transition name="slide" mode="out-in">
             <div class="service-detail pull-left" v-show="index === 2">
               <div class="detail-header">
                 <div class="title">全面企业建站服务</div>
@@ -130,14 +138,22 @@
               </div>
               <ul class="detail-items clearfix">
                 <li class="detail-item pull-left">
-                  <img src="~assets/img/merchants/service1-2.png" width="140" height="140" alt="">
-                  <div class="desc1">品牌基础建站</div>
-                  <div class="desc2">50套网站主题风格任选</div>
+                  <img src="~assets/img/merchants/service3-2.png" alt="">
+                  <div class="desc1">信用+企业身份</div>
+                  <div class="desc2">数据+权威机构认证</div>
+                  <div class="desc2">共建客户信任</div>
                 </li>
                 <li class="detail-item pull-left last">
-                  <img src="~assets/img/merchants/service1-3.png" width="140" height="140" alt="">
-                  <div class="desc1">11大垂直行业无缝对接</div>
-                  <div class="desc2">全天候依托聚贸生态圈</div>
+                  <img src="~assets/img/merchants/service3-3.png" alt="">
+                  <div class="desc1">优先排名</div>
+                  <div class="desc2">聚诚通会员享受</div>
+                  <div class="desc2">优先排名特权</div>
+                </li>
+                <li class="detail-item pull-left last">
+                  <img src="~assets/img/merchants/service3-4.png" alt="">
+                  <div class="desc1">智能客户管理</div>
+                  <div class="desc2">智能话客户管理</div>
+                  <div class="desc2">接待系统</div>
                 </li>
               </ul>
             </div>
@@ -449,7 +465,6 @@
         font-size: 14px;;
       }
     }
-    
   }
 
   .section .section-title {
@@ -525,9 +540,11 @@
     }
 
     .service-detail{
+      position: relative;
       width: 440px;
       height: 396px;
-      padding: 43px 49px 50px 46px;
+      // padding: 43px 49px 50px 46px;
+      padding-top: 43px;
       background-color: #FEFDE9;
 
       .detail-header{
@@ -550,24 +567,48 @@
     }
 
     .detail-item {
-      width: 143.5px;
-      margin-right: 58px;
+      width: 50%;
       text-align: center;
+
+      img {
+        width: 10em;
+        height: 10em;
+      }
 
       &.last {
         margin-right: 0;
       }
 
       .desc1 {
+        min-width: 140px;
         margin-top: 19px;
         font-size: 14px;
         color: #333;
+        font-weight: 600;
       }
 
       .desc2 {
+        min-width: 140px;
         font-size: 12px;
         color: #666;
       }
+    }
+
+    .service-item-2,
+    .service-item-3 {
+      .detail-item {
+        width: 33.33%;
+
+        .desc1 {
+          margin-bottom: 10px;
+        }
+
+        img{
+          width: 100px;
+          height: 100px;
+        }
+      }
+      
     }
   }
 
@@ -916,14 +957,20 @@
       background-color: #6095FF;
     }
   }
-
-  .slide-enter-active{
-    transition: all;
+  
+  .slide-leave-active,.slide-enter-active{
+      transition:  all .55s linear; 
   }
-  .slide-enter, .slide-leave-to{
-    display: none;
+  .slide-leave-active,
+  .slide-enter{
+      width:0px !important;
+      opacity: 0;
+  }
+  .slide-leave-active {
     opacity: 0;
-    width: 0;
-    height: 0;
+  }
+  .slide-leave-to{
+      width: 0;
+      opacity: 0;
   }
 </style>
