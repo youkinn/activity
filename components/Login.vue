@@ -158,16 +158,17 @@
               rememberMe:this.form.rememberMe
           	})
           	.then(({data})  => {
-              debugger;
-          		if(data.data.code != 0){
-                console.log(data.data);
-                this.$message.error(data.data.desc);
+          		if(data.code != 0){
+                console.log(data);
+                this.$message.error(data.desc);
                 return;
               }
               this.$store.commit("SET_OPEN", { opend: false });
               return axios
                 .get(`/userInfo`)
-                .then(data => data.data.data || {});
+                .then(data => {
+                  return data.data.data || {};
+                });
           	})
           	.then(data => {
                 this.$store.commit('SET_USER', data)

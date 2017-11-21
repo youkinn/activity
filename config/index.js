@@ -14,7 +14,7 @@ const NODE_ENV = {
     // SERVER_ADDRESS: 'http://192.168.23.212:8888',
     SERVER_ADDRESS: 'http://api.jumoreys.test2',
     // 认证中心
-    USERCENTER_ADDRESS: 'http://uc3.dev.com',
+    USERCENTER_ADDRESS: 'https://passport.jumore.test',
     // 中台地址
     CENTER_ADDRESS: 'https://ecenter.jumore.test2',
     // 图片服务器
