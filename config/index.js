@@ -54,7 +54,7 @@ const NODE_ENV = {
   },
   prod: {
     // CDN 服务器
-    CDN_ADDRESS: 'https://activity.jumoremt.com/_nuxt/',
+    CDN_ADDRESS: 'https://activity.jumore.com/_nuxt/',
     // API 服务器
     SERVER_ADDRESS: 'http://api.jumoreys.com',
     // 认证中心
