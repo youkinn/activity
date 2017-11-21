@@ -152,7 +152,7 @@
                 <li class="detail-item pull-left last">
                   <img src="~assets/img/merchants/service3-4.png" alt="">
                   <div class="desc1">智能客户管理</div>
-                  <div class="desc2">智能话客户管理</div>
+                  <div class="desc2">智能化客户管理</div>
                   <div class="desc2">接待系统</div>
                 </li>
               </ul>

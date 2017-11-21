@@ -1,8 +1,8 @@
 export default {
   // 聚诚通
-  JCT_ADDRESS: "https://jct.jumore.com.pre",
+  JCT_ADDRESS: 'https://jct.jumore.com.pre',
   // 聚诚通接口地址
-  JCT_ADDRESS_API: "https://jct.jumore.com.pre/api",
+  JCT_ADDRESS_API: 'https://jct.jumore.com.pre/api',
   // 聚贸支付地址
   JUMORE_PAY_URL: 'https://pre-epay.jumorepay.com.pre',
   // 用户中心

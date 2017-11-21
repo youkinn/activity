@@ -1,98 +1,96 @@
 export default {
   // 聚诚通
-  JCT_ADDRESS: 'https://jct.jumore.test2',
+  JCT_ADDRESS: 'https://jct.jumore.com',
   // 聚诚通接口地址
-  JCT_ADDRESS_API: 'https://jct.jumore.test2/api',
+  JCT_ADDRESS_API: 'https://jct.jumore.com/api',
   // 聚贸支付地址
-  JUMORE_PAY_URL: 'https://epay.jumore.test/',
+  JUMORE_PAY_URL: 'https://www.jumorepay.com/',
   // 用户中心
-  CONSTANT_USER_CORE: 'https://passport.jumore.test',
+  CONSTANT_USER_CORE: 'https://passport.jumore.com',
   // 总站地址
-  CONSTANT_MALL_URL: 'https://www.jumore.test2',
+  CONSTANT_MALL_URL: 'https://www.jumore.com',
   // 总站接口地址
   CONSTANT_MALL_API_URL: 'https://apiservice.jumore.com',
   // 总站英文站地址
-  CONSTANT_MALL_US_URL: 'https://www.jumoreglobal.test',
+  CONSTANT_MALL_US_URL: 'https://www.jumoreglobal.com',
   // 煤炭地址
-  CONSTANT_COAL_URL: 'https://www.jumoremt.test2',
+  CONSTANT_COAL_URL: 'https://www.jumoremt.com',
   // 煤炭接口地址
   CONSTANT_COAL_API_URL: 'https://api.jumoremt.com',
   // 煤炭英文站地址
-  CONSTANT_COAL_US_URL: 'https://www.jumorecoal.test',
+  CONSTANT_COAL_US_URL: 'https://www.jumorecoal.com',
   // 有色地址
-  CONSTANT_COLOURED_URL: 'https://www.jumoreys.test2',
+  CONSTANT_COLOURED_URL: 'https://www.jumoreys.com',
   // 有色接口地址
   CONSTANT_COLOURED_API_URL: 'https://api.jumoreys.com',
   // 有色英文站地址
-  CONSTANT_COLOURED_US_URL: 'https://www.jumorenonferrous.test',
+  CONSTANT_COLOURED_US_URL: 'https://www.jumorenonferrous.com',
   // 矿产地址
-  CONSTANT_MINERAL_URL: 'https://www.jumorekc.test2',
+  CONSTANT_MINERAL_URL: 'https://www.jumorekc.com',
   // 矿产接口地址
   CONSTANT_MINERAL_API_URL: 'https://api.jumorekc.com',
   // 矿产英文站地址
-  CONSTANT_MINERAL_US_URL: 'https://www.jumoremineral.test',
+  CONSTANT_MINERAL_US_URL: 'https://www.jumoremineral.com',
   // 农产品地址
-  CONSTANT_AGRICULTURE_URL: 'https://www.jumorencp.test2',
+  CONSTANT_AGRICULTURE_URL: 'https://www.jumorencp.com',
   // 农产品接口地址
   CONSTANT_AGRICULTURE_API_URL: 'https://api.jumorencp.com',
   // 农产品英文站地址
-  CONSTANT_AGRICULTURE_US_URL: 'https://www.jumoreagro.test',
+  CONSTANT_AGRICULTURE_US_URL: 'https://www.jumoreagro.com',
   // 钢铁地址
-  CONSTANT_STEEL_URL: 'https://www.jumoregt.test2',
+  CONSTANT_STEEL_URL: 'https://www.jumoregt.com',
   // 钢铁接口地址
   CONSTANT_STEEL_API_URL: 'https://api.jumoregt.com',
   // 钢铁英文站地址
-  CONSTANT_STEEL_US_URL: 'https://www.jumoresteel.test',
+  CONSTANT_STEEL_US_URL: 'https://www.jumoresteel.com',
   // 消费品地址
-  CONSTANT_CONSUMABLE_URL: 'https://www.jumorexfp.test2',
+  CONSTANT_CONSUMABLE_URL: 'https://www.jumorexfp.com',
   // 消费品接口地址
   CONSTANT_CONSUMABLE_API_URL: 'https://api.jumorexfp.com',
   // 消费品英文站地址
-  CONSTANT_CONSUMABLE_US_URL: 'https://www.jumoreconsumer.test',
+  CONSTANT_CONSUMABLE_US_URL: 'https://www.jumoreconsumer.com',
   // 食品地址
-  CONSTANT_FOOD_URL: 'https://www.jumoresp.test2',
+  CONSTANT_FOOD_URL: 'https://www.jumoresp.com',
   // 食品接口地址
   CONSTANT_FOOD_API_URL: 'https://api.jumoresp.com',
   // 食品英文站地址
-  CONSTANT_FOOD_US_URL: 'https://www.jumorefood.test',
+  CONSTANT_FOOD_US_URL: 'https://www.jumorefood.com',
   // 工业品地址
-  CONSTANT_INDUSTRIAL_URL: 'https://www.jumoregyp.test2',
+  CONSTANT_INDUSTRIAL_URL: 'https://www.jumoregyp.com',
   // 工业品接口地址
   CONSTANT_INDUSTRIAL_API_URL: 'https://api.jumoregyp.com',
   // 工业品英文站地址
-  CONSTANT_INDUSTRIAL_US_URL: 'https://www.jumoreind.test',
+  CONSTANT_INDUSTRIAL_US_URL: 'https://www.jumoreind.com',
   // 机械品地址
-  CONSTANT_MECHANICS_URL: 'https://www.jumorejx.test2',
+  CONSTANT_MECHANICS_URL: 'https://www.jumorejx.com',
   // 机械品接口地址
   CONSTANT_MECHANICS_API_URL: 'https://api.jumorejx.com',
   // 机械品英文站地址
-  CONSTANT_MECHANICS_US_URL: 'https://www.jumoremachinery.test',
+  CONSTANT_MECHANICS_US_URL: 'https://www.jumoremachinery.com',
   // 购物车地址
-  CONSTANT_SHOPPING_CART_URL: 'https://cart.jumore.test2',
+  CONSTANT_SHOPPING_CART_URL: 'https://cart.jumore.com',
   // 购物车接口地址
   CONSTANT_SHOPPING_API_CART_URL: 'https://apicart.jumore.com',
-  //  店铺接口
+  // 店铺接口
   CONSTANT_STORE_API_URL: 'https://apistore.jumore.com',
   // 店铺预览域名 不带协议头
   CONSTANT_STORE_PREVIEW_URL: 'preview.jumore.com',
   // 企业中心地址
-  CONSTANT_CENTER_URL: 'https://ecenter.jumore.test2',
+  CONSTANT_CENTER_URL: 'https://ecenter.jumore.com',
   // 图片服务器地址
-  CONSTANT_IMG_URL: 'https://image.jumore.test',
+  CONSTANT_IMG_URL: 'https://img.jumore.com',
   // 聚运通
   CONSTANT_JUMORE_YUN_URL: 'http://www.jumoreyun.com',
   // 聚认证（认证服务）
-  CONSTANT_JUMORE_CERT_URL: 'http://www.jumorecert.com',
-  // 聚认证（认证中文服务）
-  CONSTANT_JUMORE_CERT_CN_URL: 'http://www.jumorecert.com.cn',
+  CONSTANT_JUMORE_CERT_URL: 'http://www.jumorecert.com.cn',
   // 聚咨询（咨询服务）
-  CONSTANT_JUMORE_CONSULT_URL: 'http://www.jumoreconsult.com',
+  CONSTANT_JUMORE_CONSULT_URL: 'http://www.jumoreconsult.com.cn',
   // 聚贸通
   CONSTANT_JUMORE_TONG_URL: 'https://www.jumoretong.com',
   // 聚融通
   CONSTANT_JUMORE_RONG_URL: 'https://www.jumorerong.com',
   // 聚智能（技术服务）
-  CONSTANT_JUMORE_AI_URL: 'http://www.jumoreai.com',
+  CONSTANT_JUMORE_AI_URL: 'http://www.jumorezn.com',
   // 国家馆
   CONSTANT_JUMORE_G_URL: 'http://g.jumore.com',
   // 园区馆
@@ -122,11 +120,11 @@ export default {
   // 大数据
   CONSTANT_JUMORE_DSJ_URL: 'http://www.jumoreshuju.com',
   // 认证服务
-  CONSTANT_JUMORE_RENZHENG_URL: 'http://www.jumorecert.com',
+  CONSTANT_JUMORE_RENZHENG_URL: 'http://www.jumorecert.com.cn',
   // 咨询服务
-  CONSTANT_JUMORE_ZIXUN_URL: 'http://www.jumoreconsult.com',
+  CONSTANT_JUMORE_ZIXUN_URL: 'http://www.jumoreconsult.com.cn',
   // 技术服务
-  CONSTANT_JUMORE_JISHU_URL: 'http://www.jumoreai.com',
+  CONSTANT_JUMORE_JISHU_URL: 'http://www.jumorezn.com',
   // 物流服务
   CONSTANT_JUMORE_WULIU_URL: 'http://www.jumoreyun.com',
   // 金融服务
