@@ -202,7 +202,7 @@
               <img src="~assets/img/merchants/fn-icon-3.png" alt="" class="fn-icon pull-left" width="60" height="70">
               <div class="fn-detail pull-left">
                 <div class="fn-title">定意向</div>
-                <div class="fn-desc1">每天与<span class="fn-amount">500</span>万卖家</div>
+                <div class="fn-desc1">每天与<span class="fn-amount">50</span>万卖家</div>
                 <div class="fn-desc2">洽淡确定合作意向</div>
               </div>
             </li>
