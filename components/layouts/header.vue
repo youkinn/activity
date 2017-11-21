@@ -10,7 +10,7 @@
             <span class="name">{{user.realName}}<span class="line"></span></span>
             <div class="logininfodrog" >
               <div class="pr">
-                <img class="img-responsive" v-if="user.imageUrl!=''&&user.imageUrl!=undefined" :src="user.imageUrl | imgCdn">
+                <img class="img-responsive" v-if="user.imageUrl!=''&&user.imageUrl!=undefined" :src="address.IMG_ADDRESS + user.imageUrl">
                 <img class="img-responsive" v-if="(user.imageUrl==''||user.imageUrl==undefined) && (user.sex == 0 || user.sex == 2 )" src="~assets/img/userImg.png">
                 <img class="img-responsive" v-if="(user.imageUrl==''||user.imageUrl==undefined) && user.sex == 1" src="~assets/img/userImg2.png">
                   
@@ -36,7 +36,6 @@
           <div class="l"><a :href="`${centerAddress}/register/register?platformCode=1005&refUrl=${fullpath}`" v-if="!user.userId" target="_blank">免费注册</a>
         </div>
       </div>
-
       <div class="site-nav pull-right">
         <ul class="nav">
           <li>
@@ -102,7 +101,8 @@ export default {
       userCenterAddress: address.USERCENTER_ADDRESS,       // 认证中心
       platform: platform,                                  // 认证中心
       siteNavsData: siteNavs,                              // 聚贸其他平台导航
-      website: website                                     // 网站信息
+      website: website,                                     // 网站信息
+      address: address
     }
   },
   mounted () {

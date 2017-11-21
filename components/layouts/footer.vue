@@ -53,11 +53,10 @@
         <div class="jm-footer-container-div">
           <div class="text-align-center">
             <p class="jm-footer-bottom-p">
-              <a :href="platform.CONSTANT_MALL_URL" target="_blank">聚贸官网</a>
-              <a :href="platform.CONSTANT_JUMORE_URL" target="_blank">聚贸店上平台</a>
+              <a :href="platform.CONSTANT_MALL_URL" target="_blank">聚贸总站</a>
+              <a :href="platform.CONSTANT_JUMORE_URL" target="_blank">聚贸官网</a>
               <a :href="platform.CONSTANT_JUMORE_JMZX_URL" target="_blank">聚贸资讯</a>
-
-              <span class="mall" >COPYRIGHT @ <a :href="platform.CONSTANT_MALL_URL" target="_blank">聚贸总站 {{ mall }}</a></span>
+              <span class="mall" >COPYRIGHT © <a :href="platform.CONSTANT_MALL_URL" target="_blank">聚贸总站 {{ mall }}</a></span>
               <span>{{beian}}</span>
             </p>
           </div>

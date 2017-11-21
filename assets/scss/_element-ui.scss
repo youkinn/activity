@@ -130,3 +130,53 @@
 
 }
 
+.jm-ui-login .el-dialog__header {
+    padding: 20px 40px 0 40px;
+}
+.el-dialog__header {
+    padding: 20px 20px 0;
+}
+
+.jm-ui-login .el-dialog__title {
+  line-height: 1;
+  font-size: 18px;
+  font-weight: 400;
+  color: #666;
+}
+
+.jm-ui-login .dialog-login .el-dialog__body {
+    padding: 0;
+    color: #48576a;
+    font-size: 14px;
+    padding-top: 30px
+}
+
+.jm-ui-login .el-form-item__content {
+    line-height: 36px;
+    position: relative;
+    font-size: 14px;
+}
+
+.jm-ui-login .el-input__inner {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid #bfcbd9;
+    box-sizing: border-box;
+    color: #1f2d3d;
+    font-size: inherit;
+    height: 36px;
+    line-height: 1;
+    outline: 0;
+    padding: 3px 10px;
+    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+}
+
+// .jm-ui-login .el-button--primary {
+//     color: #fff;
+//     background-color: #20a0ff;
+//     border-color: #20a0ff;
+// }

@@ -5,7 +5,7 @@
         <div class="jm-advert-desc1">现在加入<span class="f30">聚诚通</span>，立享<span class="f38">5折</span>，<span class="48">50</span>个首页<span class="f36">橱窗广告</span>限量领</div>
         <div class="jm-advert-desc2 clearfix">
           <div class="pull-left">万千优质商家火热上线中...</div>
-          <!-- <div class="pull-right">详情请咨询：400-860-0550</div> -->
+          <div class="pull-right">详情请咨询：400-860-0550</div>
         </div>
       </div>
       <div class="jm-advert-right jm-advert-btn pull-right" @click.prevent="handle">立即入驻</div>
@@ -105,21 +105,34 @@ export default {
   }
 
   &-left {
-    width: 760px;
+    // width: 760px;
   }
 
   &-right {
     width: 210px;
   }
 
-  &-desc1 span {
-    color: #fff006;
+  &-desc1 {
+    letter-spacing: 4px;
+    overflow: hidden;
+    height: 44px;
+    margin-bottom: 10px;
+
+    span {
+      color: #fff006;
+      font-weight: 600;
+    }
   }
+
+  &-desc2 {
+    font-size: 20px;
+   }
 
   &-close {
     position: absolute;
     right: -55px;
     top: -20px;
+    cursor: pointer;
   }
 
   &-btn {

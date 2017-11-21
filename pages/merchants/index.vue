@@ -385,7 +385,6 @@
   }
   .swiper-container {
     width: 1024px;
-    cursor: pointer;
   }
 
   .site-main {
