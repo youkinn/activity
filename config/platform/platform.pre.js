@@ -84,7 +84,7 @@ export default {
   // 聚认证（认证服务）
   CONSTANT_JUMORE_CERT_URL: 'http://www.jumorecert.com.pre',
   // 聚认证（认证中文服务）
-  CONSTANT_JUMORE_CERT_CN_URL:'http://www.jumorecert.com.cn',
+  CONSTANT_JUMORE_CERT_CN_URL: 'http://www.jumorecert.com.cn',
   // 聚咨询（咨询服务）
   CONSTANT_JUMORE_CONSULT_URL: 'http://www.jumoreconsult.com.pre',
   // 聚贸通
@@ -126,7 +126,7 @@ export default {
   // 咨询服务
   CONSTANT_JUMORE_ZIXUN_URL: 'http://www.jumoreconsult.com.pre',
   // 技术服务
-  CONSTANT_JUMORE_JISHU_URL: 'http://www.jumoreai.com.pre',
+  CONSTANT_JUMORE_JISHU_URL: 'http://www.jumorezn.com.pre',
   // 物流服务
   CONSTANT_JUMORE_WULIU_URL: 'http://www.jumoreyun.com.pre',
   // 金融服务
